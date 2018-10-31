@@ -4,10 +4,10 @@ db.json
 *.log
 node_modules/
 public/
+.deploy_git
 .deploy*/
 
-source/_posts
+
 source/_deploy.php
-themes/yikes
-public/
-.deploy_git
+#themes/yikes
+#source/_posts
