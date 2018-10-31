@@ -8,5 +8,6 @@ public/
 
 source/_posts
 source/_deploy.php
+themes/yikes
 public/
 .deploy_git
