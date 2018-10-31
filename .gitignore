@@ -8,3 +8,5 @@ public/
 
 source/_posts
 source/_deploy.php
+public/
+.deploy_git
