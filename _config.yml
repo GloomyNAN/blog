@@ -80,7 +80,8 @@ theme: yikes
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:GloomyNAN/blog_site.git
-  branch: site
+  # repo: git@github.com:GloomyNAN/blog_site.git
+  repo: git@github.com:GloomyNAN/blog.github.io.git
+  branch: master
 
 statistical_code: ''
