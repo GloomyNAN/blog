@@ -1,6 +1,4 @@
-[submodule "source/_posts"]
-	path = source/_posts
-	url = git@github.com:GloomyNAN/doc.git
+
 [submodule "themes/landscape"]
 	path = themes/landscape
 	url = git@github.com:hexojs/hexo-theme-landscape.git
