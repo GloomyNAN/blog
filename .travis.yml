@@ -3,6 +3,8 @@ language: node_js
 node_js:
   - 10 # use nodejs v10 LTS
 cache: npm
+addons:
+  ssh_known_hosts: github.com
 branches:
   only:
     - master # build master branch only
