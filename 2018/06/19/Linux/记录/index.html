@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Linux记录"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Linux/记录/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Linux记录 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Linux记录
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>时区</p>
+<p><a href="https://www.linuxprobe.com/linux-time.html" target="_blank" rel="noopener">https://www.linuxprobe.com/linux-time.html</a></p>
+<p>sudo rm -f /etc/localtime<br>sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</p>
+<p>export TZ=’Asia/Shanghai’<br>执行完成之后需要重新登录系统或刷新 ~/.bashrc 生效。</p>
+<p>source ~/.bashrc</p>
+<p>虚拟机正在使用的错误<br>rpm -qa | grep bind<br>rpm -e XXX 删除<br>rpm -ivh XXX 安装<br>more XXX &gt; XXX</p>
+<p><a href="https://help.aliyun.com/knowledge_detail/40573.html" target="_blank" rel="noopener">https://help.aliyun.com/knowledge_detail/40573.html</a></p>
+<p>/etc/resolv.conf<br>rervice network restart 53</p>
+<p>host<br>nslookup<br>named.conf</p>
+<p>shell windows|bat shell脚本<br>bash shell .sh</p>
+<p>ifconfig  setup<br>service network restart<br>etc/sysconfig/network-scripts/</p>
+<p>帐号配置信息:/etc/passwd<br>帐号密码信息:/etc/shadow<br>系统配置信息:/etc/login.</p>
+<p>useradd 帐号<br>passwd 帐号<br>输入密码：xxx</p>
+<p>linux属性介绍：<a href="http://www.hdhacker.com/thread-11172-1-2.html" target="_blank" rel="noopener">http://www.hdhacker.com/thread-11172-1-2.html</a></p>
+<p>rpm -q XXX 查询已有的软件</p>
+<p><a href="http://www.hdhacker.com/thread-11182-1-1.html" target="_blank" rel="noopener">http://www.hdhacker.com/thread-11182-1-1.html</a></p>
+<p>777  7 =111  777  111  111 111</p>
+<p>7=111<br>7=111<br>7=111</p>
+<p>who w last top PS kill</p>
+<p>PS命令介绍：<br><a href="http://www.hdhacker.com/thread-11244-1-1.html" target="_blank" rel="noopener">http://www.hdhacker.com/thread-11244-1-1.html</a></p>
+<p>/etc/syslog.conf</p>
+<p>auth　　　　认证系统，如login或su，即询问用户名和口令<br>cron　　　　系统执行定时任务时发出的信息<br>daemon　　  某些系统的守护程式的 syslog，如由in.ftpd产生的log<br>kern　　　 　内核的信息<br>lpr　　　　　打印机的信息<br>mail　　　　处理邮件的守护进程发出的信息<br>mark　　　　定时发送消息的时标程式<br>news　　　　新闻组的守护进程的信息<br>user　　　　本地用户的应用程式的信息<br>uucp　　　　uucp子系统的信息<br>*　　　　　表示所有可能的信息来源</p>
+<p>print “welcome to HDhacker”  ‘打印出XXX</p>
+<!--注释-->    #  startx
+
+<p>show config</p>
+<p>enable</p>
+<p>Tftp-server</p>
+<p>clear arp-cache</p>
+<p>show arp</p>
+<p>telnet xxx.xxx.xxx.xxx</p>
+<p>clear logging</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Reading%20Notes/%E9%AB%98%E6%95%88%E8%83%BD%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E4%BF%AE%E7%82%BC/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">高效能程序员的修炼</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/PHP%20/Laravel%E7%AC%94%E8%AE%B0/">
+        <span class="next-text nav-default">Laravel笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

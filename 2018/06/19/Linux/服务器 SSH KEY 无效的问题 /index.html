@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="服务器 SSH KEY 无效的问题"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Linux/服务器 SSH KEY 无效的问题 /"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>服务器 SSH KEY 无效的问题 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">服务器 SSH KEY 无效的问题
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>使用GitLab或者Gogs突然SSH无效问题解决</p>
+<blockquote>
+<p>git push，git pull 的时候，却提示验证失败。无法识别SSH KEY，尝试过删除了，然后重新添加SSH KEY也不行。</p>
+</blockquote>
+<p>原因：是因为.ssh目录没有ssh_home_t标签！！</p>
+<p>解决：</p>
+<ol>
+<li>检查目录<code>ls -laZ .ssh</code></li>
+<li>重置标签<code>restorecon -r -vv .ssh</code></li>
+<li>修改相关目录权限：</li>
+</ol>
+<blockquote>
+<p>文件<del>/.ssh/authorized_keys的权限必须为600，目录</del>/.ssh/权限为700，用户家目录权限也必须是700，否者信任会失效。</p>
+</blockquote>
+<p>参考<br><a href="https://www.linuxidc.com/Linux/2013-07/87267.htm" target="_blank" rel="noopener">一次由SELinux引起的ssh公钥认证失败问题</a><br><a href="https://www.linuxidc.com/Linux/2015-02/113622.htm" target="_blank" rel="noopener">建立Linux ssh信任及常见问题解决办法</a><br><a href="https://www.linuxidc.com/Linux/2017-04/143072.htm" target="_blank" rel="noopener">GitLab 迁移服务器后 SSH KEY 无效的问题</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/React%20Native/RN%20ES6%E8%A7%84%E8%8C%83%E6%8F%92%E4%BB%B6-eslint/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">RN ES6规范插件-eslint</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/Databases/Mongodb/">
+        <span class="next-text nav-default">Mongodb</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

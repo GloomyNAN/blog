@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Org-mode"/><meta name="keywords" content="emacs, org, Yikes" /><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Editor/emacs/Org-mode/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Org-mode - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Org-mode
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p><a href="https://www.cnblogs.com/qlwy/archive/2012/06/15/2551034.html#sec-4-4" target="_blank" rel="noopener">Org入门</a><br><a href="http://ergoemacs.org/" target="_blank" rel="noopener">ErgoEmacs</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">M-RET 插入同级列表</span><br></pre></td></tr></table></figure>
+
+<p>快捷键    说明<br>S-TAB    循环切换整个文档的大纲状态（折叠、打开下一级、打开全部）<br>TAB    循环切换光标所在的大纲状态<br>大纲或者列表之间移动<br>快捷键    说明<br>C-c C-n/p    移动到下上一个标题（不断标题是哪一级）<br>C-c C-f/b    移动到同一级别的下/上标题<br>C-c C-u    跳到上一级标题<br>C-c C-j    切换到大纲预览状态<br>基于大纲/标题的编辑<br>快捷键    说明<br>M-RET    插入一个同级别的标题<br>M-S-RET    插入一个同级别的TODO标题<br>M-LEFT/RIGHT    将当前标题升/降级<br>M-S-LEFT/RIGHT    将子树升/降级<br>M-S-UP/DOWN    将子树上/下移动<br>C-c *    将本行设为标题或者正文<br>C-c C-w    将子树或者区域移动到另一个标题处（跨缓冲区）<br>C-c C-x b    在新缓冲区显示当前分支<br>C-c /    只列出包含搜索结果的大纲，并高亮，支持多种搜索方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#+BEGIN_SRC emacs-lisp</span><br><span class="line">(setq make-backip-files nil)</span><br><span class="line">#+END_SRC</span><br></pre></td></tr></table></figure>
+
+<p>C-c ‘ 打开buffer(emacs lisp)/返回<br>C-c C-k退出</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; org-mode语法高亮配置</span></span><br><span class="line">(<span class="name">require</span> 'org)</span><br><span class="line">(<span class="name">setq</span> org-src-fontify-natively <span class="literal">t</span>)</span><br><span class="line"></span><br><span class="line">&lt;+s+tab = <span class="comment">;;插入源代码</span></span><br><span class="line">#+BEGIN_SRC</span><br><span class="line">#+END_SRC</span><br></pre></td></tr></table></figure>
+<p>M-return 自动补全</p>
+<h2 id="归档操作"><a href="#归档操作" class="headerlink" title="归档操作"></a>归档操作</h2><p><strong>内部归档</strong><br>打上ACHIVED标签或者移动到名为achived的子树中去并打上标签</p>
+<p><code>C-c C-x a</code>将某一个节点打上ARCHIVE标签。<br><code>C-c C-x a</code>将当前节点归入一个名为Archive的子树中，并且这个子树是位于当前级别子树的最下方。</p>
+<p><strong>外部归档</strong><br>外部归档是指把子树移动到另一个org文件中去。文件名可以自定义。默认情况下，归档的子树会被移动到名为“当年文件名_archived”的文件中去<br><code>C-c C-x C-s</code>是把当前的节点移到archived文件中去</p>
+<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">C-c C-s <span class="comment">;; 设定开始时间</span></span><br><span class="line">C-c C-d<span class="comment">;;设定结束时间</span></span><br><span class="line">C-c a +a <span class="comment">;;列表</span></span><br><span class="line">d回到当前</span><br><span class="line"></span><br><span class="line"><span class="comment">; 文学编程</span></span><br><span class="line">(<span class="name">require</span> 'org-install)</span><br><span class="line">(<span class="name">require</span> 'ob-tangle)</span><br><span class="line">(<span class="name">org-babel-load-file</span> (<span class="name">expand-file-name</span> <span class="string">"XXXX"</span> user-enamcs-directory))</span><br><span class="line"></span><br><span class="line"><span class="comment">; 记笔记</span></span><br><span class="line">(<span class="name">setq</span> org-capture-templates</span><br><span class="line">    '((<span class="string">"t"</span> <span class="string">"Todo"</span> entry (fileheadline <span class="string">"~/.emacs.d/gtd.org"</span> <span class="string">"工作安排"</span>)</span><br><span class="line">    <span class="string">"* TODO [#B] %?\n %i\n"</span></span><br><span class="line">    :empty-lines <span class="number">1</span>)</span><br><span class="line">    (<span class="string">"c"</span> <span class="string">"Chrome"</span> entry (fileheadline <span class="string">"~/.emacs.d/notes.org"</span> <span class="string">"Quick notes"</span>)</span><br><span class="line">      <span class="string">"* TODO [#C] %?\n %(XXX/retrieve-chrome-current-tab-url)\n %i\n %U"</span></span><br><span class="line">      :empty-lines <span class="number">1</span>)</span><br><span class="line">      ))</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/emacs/">emacs</a>
+            <a href="/tags/org/">org</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/etc/Git%20hook/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Git hook</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/etc/API%E8%AE%BE%E8%AE%A1/">
+        <span class="next-text nav-default">Restful API设计</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

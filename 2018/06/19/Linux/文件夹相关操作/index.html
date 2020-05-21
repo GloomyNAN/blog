@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="文件夹相关操作"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Linux/文件夹相关操作/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>文件夹相关操作 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">文件夹相关操作
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>centos彻底删除文件夹、文件命令（centos 新建、删除、移动、复制等命令：</p>
+<p>1.新建文件夹</p>
+<p>mkdir 文件名</p>
+<p>新建一个名为test的文件夹在home下</p>
+<p>view source1 mkdir /home/test</p>
+<p>5、-i是交互模式。使用这个选项，rm命令在删除任何文件前提示用户确认。</p>
+<p>4.移动文件或文件夹</p>
+<p>mv [options] 源文件或目录 目标文件或目录</p>
+<p>示例：</p>
+<p>1、移动hscripts文件夹/目录下的所有文件，目录和子目录到tmp目录mv hscripts tmp<br>分析：在上述命令中，如果tmp目录已经存在，mv命令将移动hscripts文件夹/目录下的所有文件，目录和子目录到tmp目录。 如果没有tmp目录，它将重命名 hscripts目录为tmp目录。</p>
+<p>2、移动多个文件/更多问价到另一目录<br>mv file1.txt tmp/file2.txt newdir<br>这个命令移动当前目录的file1.txt文件和tmp文件夹/目录的file2.txt文件到newdir目录。</p>
+<p>参数：</p>
+<p>-i：交互方式操作。如果mv操作将导致对已存在的目标文件的覆盖，此时系统询问是否重写，要求用户回答”y”或”n”，这样可以避免误覆盖文件。</p>
+<p>-f：禁止交互操作。mv操作要覆盖某个已有的目标文件时不给任何指示，指定此参数后i参数将不再起作用。</p>
+<p>5.复制文件或文件夹</p>
+<p>cp [options] 来源档(source) 目的檔(destination)</p>
+<p>参数：<br>-a ：相当于 -pdr 的意思；<br>-d ：若来源文件为连结文件的属性(link file)，则复制连结文件属性而非档案本身；<br>-f ：为强制 (force) 的意思，若有重复或其它疑问时，不会询问使用者，而强制复制；<br>-i ：若目的檔(destination)已经存在时，在覆盖时会先询问是否真的动作！<br>-l ：进行硬式连结 (hard link) 的连结档建立，而非复制档案本身；<br>-p ：连同档案的属性一起复制过去，而非使用预设属性；<br>-r ：递归持续复制，用于目录的复制行为；<br>-s ：复制成为符号连结文件 (symbolic link)，亦即『快捷方式』档案；<br>-u ：若 destination 比 source 旧才更新 destination ！<br> 最后需要注意的，如果来源档有两个以上，则最后一个目的文件一定要是『目录』才行！</p>
+<p>示例:</p>
+<p>1、复制两个文件:<br>cp file1 file2<br>上述cp命令复制文件file1.php 的内容到文件file2.php中。</p>
+<p>2、备份拷贝的文件:<br>cp -b file1.php file2.php<br>创建文件file1.php的带着符号 ‘<del>’的备份文件file2.php</del>。<br>3、复制文件夹和子文件夹:<br>cp -R scripts scripts1<br>上面的 cp 命令从 scripts 复制文件夹和子文件夹到 scripts1。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Linux/%E6%97%A5%E5%B8%B8%E7%BB%B4%E6%8A%A4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">日常维护</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/Linux/%E4%BF%AE%E6%94%B9linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%97%B6%E9%97%B4CST%E4%B8%8EEDT/">
+        <span class="next-text nav-default">修改linux系统的时间CST与EDT</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

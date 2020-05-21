@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="系统ping 命令time,TTL分析"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Linux/系统ping 命令time,TTL分析/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>系统ping 命令time,TTL分析 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">系统ping 命令time,TTL分析
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="1-PING-Packet-Internet-Grope"><a href="#1-PING-Packet-Internet-Grope" class="headerlink" title="1. PING (Packet Internet Grope)"></a>1. PING (Packet Internet Grope)</h2><p>因特网包探索器，用于测试网络连接量的程序。Ping发送一个ICMP回声请求消息给目的地并报告是否收到所希望的ICMP回声应答。</p>
+<h2 id="2-TTL：生存时间"><a href="#2-TTL：生存时间" class="headerlink" title="2. TTL：生存时间"></a>2. TTL：生存时间</h2><p>　　<br>指定数据包被路由器丢弃之前允许通过的网段数量。</p>
+<p>TTL 是由发送主机设置的，以防止数据包不断在 IP 互联网络上永不终止地循环。转发 IP 数据包时，要求路由器至少将 TTL 减小 1。</p>
+<p>使用PING时涉及到的 ICMP 报文类型<br>一个为ICMR请求回显（ICMP Echo Request）</p>
+<p>一个为ICMP回显应答（ICMP Echo Reply）<br>　　<br>TTL 字段值可以帮助我们识别操作系统类型。</p>
+<p>UNIX 及类 UNIX 操作系统 ICMP 回显应答的 TTL 字段值为 255<br>Compaq Tru64 5.0 ICMP 回显应答的 TTL 字段值为 64<br>　　微软 Windows NT/2K操作系统 ICMP 回显应答的 TTL 字段值为 128<br>　　微软 Windows 95 操作系统 ICMP 回显应答的 TTL 字段值为 32<br>　　当然，返回的TTL值是相同的<br>　　但有些情况下有所特殊<br>　　LINUX Kernel 2.2.x &amp; 2.4.x ICMP 回显应答的 TTL 字段值为 64<br>　　FreeBSD 4.1, 4.0, 3.4;<br>　　Sun Solaris 2.5.1, 2.6, 2.7, 2.8;<br>　　OpenBSD 2.6, 2.7,<br>　　NetBSD<br>　　HP UX 10.20<br>　　ICMP 回显应答的 TTL 字段值为 255<br>　　Windows 95/98/98SE<br>　　Windows ME<br>　　ICMP 回显应答的 TTL 字段值为 32<br>　　Windows NT4 WRKS<br>　　Windows NT4 Server<br>　　Windows 2000<br>　　Windows XP<br>　　ICMP 回显应答的 TTL 字段值为 128<br>　　这样，我们就可以通过这种方法来辨别操作系统</p>
+<h2 id="三，举例说明"><a href="#三，举例说明" class="headerlink" title="三，举例说明"></a>三，举例说明</h2><p>C:\Documents and Settings&gt;ping blog.51yip.com<br>Pinging blog.51yip.com [173.201.152.6] with 32 bytes of data:<br>Reply from 173.201.152.6: bytes=32 time=257ms TTL=45<br>Reply from 173.201.152.6: bytes=32 time=256ms TTL=45<br>Reply from 173.201.152.6: bytes=32 time=262ms TTL=45<br>Reply from 173.201.152.6: bytes=32 time=258ms TTL=45</p>
+<p>Ping statistics for 173.201.152.6:<br>Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),<br>Approximate round trip times in milli-seconds:<br>Minimum = 256ms, Maximum = 262ms, Average = 258ms</p>
+<p>由此我们可以断定，blog.51yip.com是一台linux主机，经过了64-45=19次中转后到达本机，time=257ms，这个时间是一次请求的时间，这个时间越小，说明速度越快，越大说明速度越慢。</p>
+<p>C:\Documents and Settings&gt;ping 127.0.0.1</p>
+<p>Pinging 127.0.0.1 with 32 bytes of data:<br>Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128<br>Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128</p>
+<p>Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)<br>Approximate round trip times in milli-seconds:<br>Minimum = 0ms, Maximum = 0ms, Average = 0ms<br>在这里的TTL=128是表示二个意思:</p>
+<p>1,请求主机是一台WINDOWS系统的电脑<br>2,并且没有经过路由中转，也就是请求的是本机。每次请求的时间呢，小于百万份之一秒。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/PHP%20/Laravel%E7%AC%94%E8%AE%B0/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Laravel笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/etc/Git%20hook/">
+        <span class="next-text nav-default">Git hook</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Laravel笔记"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/PHP /Laravel笔记/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Laravel笔记 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Laravel笔记
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h3><pre><code>composer create-project laravel/laravel weixin-public_account --prefer-dist &quot;5.1.*&quot;</code></pre><h3 id="安装工具"><a href="#安装工具" class="headerlink" title="安装工具"></a>安装工具</h3><pre><code>composer global require &quot;laravel/installer&quot;</code></pre><h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><pre><code>export PATH=$PATH:~/.composer/vendor/bin/</code></pre><h3 id="hemostead-box"><a href="#hemostead-box" class="headerlink" title="hemostead box"></a>hemostead box</h3><pre><code>https://atlas.hashicorp.com/laravel/boxes/homestead/versions/2.1.0/providers/parallels.box
+https://atlas.hashicorp.com/laravel/boxes/homestead/versions/2.1.0/providers/virtualbox.box</code></pre><a id="more"></a>
+<h3 id="Laravel创建表迁移-model"><a href="#Laravel创建表迁移-model" class="headerlink" title="Laravel创建表迁移+model"></a>Laravel创建表迁移+model</h3><pre><code>php artisan make:model --migration Post</code></pre><p>运行迁移</p>
+<pre><code>php artisan migrate</code></pre><p>插入数据库</p>
+<pre><code>php artisan db:seed</code></pre><p>生成一个空的控制器</p>
+<pre><code>php artisan make:controller BlogController --plain</code></pre><p>建立多对多关系</p>
+<pre><code>php artisan make:migration --create=post_tag_pivot create_post_tag_pivot</code></pre><p>清除配置缓存</p>
+<pre><code>php artisan config:cache</code></pre><p>composer更新自动加载</p>
+<pre><code>composer dump-autoload</code></pre><blockquote>
+<p>问题描述：<br>查询数据不能save();因为主键为ID，我 设置成了id<br>isDirty getDirty</p>
+</blockquote>
+<h2 id="查询构造器"><a href="#查询构造器" class="headerlink" title="查询构造器"></a>查询构造器</h2><h3 id="使用查询构造器插入数据"><a href="#使用查询构造器插入数据" class="headerlink" title="使用查询构造器插入数据"></a>使用查询构造器插入数据</h3><p>返回布尔类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;insert(array(&#39;name&#39; &#x3D;&gt; jason,&#39;age&#39; &#x3D;&gt; 18));</span><br></pre></td></tr></table></figure>
+
+<p>返回插入的id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;insertGetId(array(&#39;name&#39; &#x3D;&gt; jason,&#39;age&#39; &#x3D;&gt; 18));</span><br></pre></td></tr></table></figure>
+
+<p>插入多条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;insert(array(array(&#39;name&#39; &#x3D;&gt; jason,&#39;age&#39; &#x3D;&gt; 18),array(&#39;name&#39; &#x3D;&gt; jason2,&#39;age&#39; &#x3D;&gt; 18)));</span><br></pre></td></tr></table></figure>
+
+
+<p>###使用查询构造器更新数据</p>
+<p>返回影响的行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;where(&#39;id&#39;, 12)-&gt;update(array(&#39;age&#39; &#x3D;&gt; 18));</span><br></pre></td></tr></table></figure>
+
+<p>字段自增3写，默认为1法 返回影响的行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;where(&#39;id&#39;, 12)-&gt;increment(&#39;age&#39;, 3);</span><br></pre></td></tr></table></figure>
+
+<p>字段自减3写，默认为1法 返回影响的行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;where(&#39;id&#39;, 12)-&gt;decrement(&#39;age&#39;, 3);</span><br></pre></td></tr></table></figure>
+
+<p>自增或自减的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#39;as_admin&#39;)-&gt;where(&#39;id&#39;, 12)-&gt;decrement(&#39;age&#39;, 3, array(&#39;name&#39; &#x3D;&gt; &#39;张佳宁&#39;));</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">###使用查询构造器删除数据</span><br><span class="line"></span><br><span class="line">返回删除的行数</span><br></pre></td></tr></table></figure>
+<p>DB::table(‘as_admin’)-&gt;where(‘id’, 12)-&gt;delete();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">删除id&gt;&#x3D;12的数据</span><br></pre></td></tr></table></figure>
+<p>DB::table(‘as_admin’)-&gt;where(‘id’, ‘&gt;=’, 12)-&gt;delete(); </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">get() 获取表中所有数据</span><br></pre></td></tr></table></figure>
+<p>$students = DB::table(‘student’)-&gt;get();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">first() 获取第一条数据（随机）,配合orderBy 一起使用</span><br></pre></td></tr></table></figure>
+<p>$students =  DB::table(‘student’)-&gt;orderBy(‘id’,’asc’)-&gt;first();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">where 多条件查询</span><br></pre></td></tr></table></figure>
+<p>$students = DB::table(‘student’)<br>      -&gt;whereRaw(‘id &gt;= ? and age &gt; ?’,[18,20])<br>      -&gt;get();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pluck 取结果集中一列特定列，返回字符串类型</span><br></pre></td></tr></table></figure>
+<p>$students = DB::table(‘student’)-&gt;pluck(‘id’,’name’,’age’);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">lists 按照Key&#x3D;&gt;value 对 的方式返回数组；最多两个参数，第一个参数作为value,第二个做为key。一个参数时与pluck用法一样</span><br></pre></td></tr></table></figure>
+<p>$students = DB::table(‘student’)<br>      -&gt;whereRaw(‘id &gt;= ? and age &gt; ?’,[18,20])<br>      -&gt;lists(‘id’,’name’,’age’);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select() 指定查询的字段</span><br></pre></td></tr></table></figure>
+<p>$students = DB::table(‘student’)<br>        -&gt;select(‘id’,’name’,’age’)<br>        -&gt;get();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">chunk() 方法 指定一次返回多少条，后跟闭包（匿名函数）</span><br></pre></td></tr></table></figure>
+<p>echo ‘<pre>';    //预格式化<br>DB::table('student')->chunk(2,function($students){<br>  var_dump($students);<br>});<br>dd($students);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##聚合函数</span><br><span class="line"></span><br><span class="line">返回记录数</span><br></pre></td></tr></table></figure>
+<p>DB::table('as_admin')->select('id','name','age')->count();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">最大值，min同理</span><br></pre></td></tr></table></figure>
+<p>DB::table('as_admin')->select('id','name','age')->max('age');</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      </span><br><span class="line">返回平均值</span><br></pre></td></tr></table></figure>
+<p>DB::table('as_admin')->select('id','name','age')->avg('age');</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">返回指定字段数据</span><br></pre></td></tr></table></figure>
+<p>DB::table('as_admin')->select('id','name','age')->sum('sum');</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##数据库操作 - Eloquent ORM 查询数据</span><br><span class="line"></span><br><span class="line">1.创建Model类型 方法里面声明两个受保护属性:$table(表名)和\$primaryKey(主键)</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;&lt;?php</span><br><span class="line">namespace App;</span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line">class Student extends Model&#123;</span><br><span class="line">  protected $table &#x3D; &#39;student&#39;;</span><br><span class="line">  protected $primaryKey &#x3D; &#39;id&#39;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.Controller里面以 类名::方法 (静态方法)的风格进行操作数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace App\Http\Controllers;</span><br><span class="line">use Illuminate\Support\Facades\DB;</span><br><span class="line">use App\Student;</span><br><span class="line">class StudentController extends Controller&#123;</span><br><span class="line">  public function orm1() &#123;</span><br><span class="line">    echo &#39;&lt;pre&gt;&#39;;</span><br><span class="line">    &#x2F;&#x2F; all 通过orm获取所有数据</span><br><span class="line">    &#x2F;&#x2F; $result &#x3D; Student::all();</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; find 通过主键返回指定的数据</span><br><span class="line">    &#x2F;&#x2F; $result &#x3D; Student::find(1001);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; findOrFail 通过主键返回指定的数据 未查找到到则抛出异常</span><br><span class="line">    &#x2F;&#x2F; $result &#x3D; Student::findOrFail(1001);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 获取符合条件的数据</span><br><span class="line">    &#x2F;&#x2F; $student &#x3D; (Student::where(&#39;age&#39;, &#39;&lt;&#39;, 20)-&gt;get())[&#39;tables&#39;];</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 分段式(分页)获取数据递交给闭包函数循环处理</span><br><span class="line">    &#x2F;&#x2F; Student::chunk(2, function($student) &#123;</span><br><span class="line">    &#x2F;&#x2F; 	var_dump($student);</span><br><span class="line">    &#x2F;&#x2F; &#125;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 查询构造器之聚合函数</span><br><span class="line">    $result &#x3D; Student::count();</span><br><span class="line">    dd($result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="视频课程记录"><a href="#视频课程记录" class="headerlink" title="视频课程记录"></a>视频课程记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新增</span><br><span class="line">$bool &#x3D; DB::insert（&#39;insert into student(name,age) values(?,?) [&#39;imooc&#39;,19]&#39;）</span><br><span class="line">var_dump($bool);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 更新</span><br><span class="line">$num &#x3D; DB::update(&#39;update student set age &#x3D; ? where name &#x3D; ?&#39;,[20,&#39;sean]);</span><br><span class="line">var_dump($num);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 查询 </span><br><span class="line">$students &#x3D; DB::select(&#39;select * from student where id &gt; ?&#39;,[1001]);</span><br><span class="line">dd（$students）;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 删除</span><br><span class="line">$bool &#x3D; DB::delete(&#39;delete from student where id &gt;?&#39;,[1001]);</span><br><span class="line">dd($bool)</span><br></pre></td></tr></table></figure>
+
+
+
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Linux/%E8%AE%B0%E5%BD%95/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Linux记录</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/Linux/%E7%B3%BB%E7%BB%9Fping%20%E5%91%BD%E4%BB%A4time,TTL%E5%88%86%E6%9E%90/">
+        <span class="next-text nav-default">系统ping 命令time,TTL分析</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

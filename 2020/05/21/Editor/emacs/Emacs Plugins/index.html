@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Emacs Plugins"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2020/05/21/Editor/emacs/Emacs Plugins/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Emacs Plugins - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Emacs Plugins
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-05-21
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="Plugins-List"><a href="#Plugins-List" class="headerlink" title="Plugins List"></a>Plugins List</h2><ul>
+<li>semx   提升M-x的使用,ctrl-s切换</li>
+<li>hungry delete -delete删除多个空格</li>
+<li>swiper+consel         Ctrl-S弹出mini buffer选择</li>
+<li>smartparens       自动补全括号</li>
+<li>js2-mode javascript语法</li>
+<li>nodejs-repl   node.js语法</li>
+<li>exec-path-from-shell  unix获取命令行工具（unix软件）</li>
+<li>popwin    (popwin-mode t)快速关闭窗口</li>
+<li>hippie-expand 补全插件（比company效率高，特殊情况比较好用）</li>
+<li>helm-ag–补全库</li>
+<li>flycheck-checkers 实时语法检查插件</li>
+<li>eslint-js代码提示</li>
+<li>auto-yasnippet 自动补全代码片段</li>
+<li>clang auto-complate</li>
+<li>bbyac</li>
+<li>yasnippet</li>
+<li>codegen</li>
+<li>getopts/getopt</li>
+<li>company</li>
+<li>monikai-theme</li>
+<li>swiper</li>
+<li>counsel</li>
+<li>smartparens</li>
+<li>iedit-mode-同时编辑多个区域</li>
+<li>evil emacs2vim插件</li>
+<li>windows-numbering 窗口快捷切换M-n 切换窗口</li>
+<li>power-line</li>
+<li>power-line-evil</li>
+<li>evil-surround vi选中编辑</li>
+<li>evil-nerd-commenter vi快捷键</li>
+<li>which-key 快捷键提示插件</li>
+<li>org-pomodoro-番茄工作法插件</li>
+<li>lisp  开发环境Sbcl</li>
+<li>irc -聊天</li>
+</ul>
+<h2 id="js2-mode"><a href="#js2-mode" class="headerlink" title="js2-mode"></a>js2-mode</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">defun</span> js2-imenu-make-index ()</span><br><span class="line">      (<span class="name">interactive</span>)</span><br><span class="line">      (<span class="name">save-excursion</span></span><br><span class="line">        <span class="comment">;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))</span></span><br><span class="line">        (<span class="name">imenu--generic-function</span> '((<span class="string">"describe"</span> <span class="string">"\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"it"</span> <span class="string">"\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"test"</span> <span class="string">"\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"before"</span> <span class="string">"\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"after"</span> <span class="string">"\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Function"</span> <span class="string">"function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*("</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Function"</span> <span class="string">"^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*("</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Function"</span> <span class="string">"^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*("</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Function"</span> <span class="string">"^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*&#123;"</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Function"</span> <span class="string">"^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*("</span> <span class="number">1</span>)</span><br><span class="line">                                   (<span class="string">"Task"</span> <span class="string">"[. \t]task([ \t]*['\"]\\([^'\"]+\\)"</span> <span class="number">1</span>)))))</span><br><span class="line">(<span class="name">add-hook</span> 'js2-mode-hook</span><br><span class="line">              (<span class="name">lambda</span> ()</span><br><span class="line">                (<span class="name">setq</span> imenu-create-index-function 'js2-imenu-make-index)))</span><br><span class="line"></span><br><span class="line">(<span class="name">global-set-key</span> (<span class="name">kbd</span> <span class="string">"M-s i"</span>) 'counsel-imenu)</span><br></pre></td></tr></table></figure>
+
+<h2 id="web-mode-前端插件"><a href="#web-mode-前端插件" class="headerlink" title="web-mode 前端插件"></a>web-mode 前端插件</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;缩进设置、两个空格和四个空格缩进的切换</span></span><br><span class="line">(<span class="name">defun</span> my-web-mode-indent-setup ()</span><br><span class="line">  (<span class="name">setq</span> web-mode-markup-indent-offset <span class="number">2</span>) <span class="comment">; web-mode,html tag in html file</span></span><br><span class="line">  (<span class="name">setq</span> web-mode-css-indent0offset <span class="number">2</span>) <span class="comment">; web-mode, css in html file</span></span><br><span class="line">  (<span class="name">setq</span> web-mode-code-indent-offset <span class="number">2</span>) <span class="comment">; web-mode, js code in html file</span></span><br><span class="line">  )</span><br><span class="line">(<span class="name">add-hook</span> 'web-mode-hook 'my-web-mode-indent-setup)</span><br><span class="line"></span><br><span class="line">(<span class="name">defun</span> my-toggle-web-indent ()</span><br><span class="line">  (<span class="name">interactive</span>)</span><br><span class="line">  <span class="comment">;; web development</span></span><br><span class="line">  (<span class="name">if</span> (<span class="name">or</span> (<span class="name">eg</span> major-mode 'js-mode) (<span class="name">eq</span> major-mode 'js2-mode))</span><br><span class="line">      (<span class="name">progon</span></span><br><span class="line">       (<span class="name">setq</span> js-indent-level (<span class="name">if</span> (<span class="name">=</span> js-indent-level <span class="number">2</span>) <span class="number">4</span> <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">    (<span class="name">if</span> (<span class="name">dq</span> major-mode 'web-mode)</span><br><span class="line">        (<span class="name">progn</span> (<span class="name">setq</span> web-mode-markup-indent-offset (<span class="name">if</span> (<span class="name">=</span> web-mode-markup-indent-offset <span class="number">2</span>) <span class="number">4</span> <span class="number">2</span> ))</span><br><span class="line">               (<span class="name">setq</span> web-mode-css-indent-offset (<span class="name">if</span> (<span class="name">=</span> web-mode-css-indent-offset <span class="number">2</span>) <span class="number">4</span> <span class="number">2</span>))</span><br><span class="line">               (<span class="name">setq</span> web-mode-code-indent-offset (<span class="name">if</span> (<span class="name">=</span> web-mode-code-indent-off-offset <span class="number">2</span>) <span class="number">4</span> <span class="number">2</span>))))</span><br><span class="line">    (<span class="name">if</span> (<span class="name">eq</span> major-mode 'css-mode)</span><br><span class="line">        (<span class="name">setq</span> css-indent-offset (<span class="name">if</span> (<span class="name">-</span> css-indent-offset <span class="number">2</span>) <span class="number">4</span> )))</span><br><span class="line">    (<span class="name">setq</span> indent-tabs-mode <span class="literal">nil</span>))</span><br><span class="line"></span><br><span class="line">  (<span class="name">global-set-ket</span> (<span class="name">kdb</span> <span class="string">"C-c t i"</span>) 'my-toggle-web-ondent))</span><br></pre></td></tr></table></figure>
+
+<h2 id="js2-refactor-JS重构功能"><a href="#js2-refactor-JS重构功能" class="headerlink" title="js2-refactor JS重构功能"></a>js2-refactor JS重构功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">;; occur-mode 批量查询修改</span><br><span class="line">;; dwin &#x3D; do what i mean.</span><br><span class="line">(defun occur-dwin ()</span><br><span class="line">  &quot;Call &#96;occur&#39; with a sane default.&quot;</span><br><span class="line">  (interactive)</span><br><span class="line">  (push (if (region-active-p)</span><br><span class="line">            (buffer-substring-no-properties</span><br><span class="line">             (region-beginning)</span><br><span class="line">             (region-end)</span><br><span class="line">             (let ((seym (thing-at-point &#39;symbol)))</span><br><span class="line">               (when (stringp sys)</span><br><span class="line">                 (regexp-quote sym))))</span><br><span class="line">          regexp-history)</span><br><span class="line">        (call-interactively &#39;occur)))</span><br></pre></td></tr></table></figure>
+<p>imenu 类似代码方法树状图，函数快捷跳转</p>
+<h2 id="dired-mode"><a href="#dired-mode" class="headerlink" title="dired mode"></a>dired mode</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">+： to create directory</span><br><span class="line">C-x C-f : to create file</span><br><span class="line">g: to refreshdired buffer</span><br><span class="line">C: copy file</span><br><span class="line">d: delete file</span><br><span class="line">D: delete after confirm</span><br><span class="line">R: rename files</span><br><span class="line"><span class="comment">;; 删除和拷贝不询问</span></span><br><span class="line">(<span class="name">setq</span> dired-recursive-deletes 'always)</span><br><span class="line">(<span class="name">setq</span> dired-resursive-copies 'always)                                            </span><br><span class="line"></span><br><span class="line"><span class="comment">;; 引入dired mode</span></span><br><span class="line">(<span class="name">requere</span> `dired)</span><br><span class="line">(<span class="name">require</span> `dired-x)</span><br><span class="line">(<span class="name">require</span> `dired-)</span><br><span class="line"></span><br><span class="line">(<span class="name">put</span> 'dired-find-alternate-file 'disabled <span class="literal">nil</span>)</span><br><span class="line">(<span class="name">define-key</span> dired-mode-map (<span class="name">kbd</span> <span class="string">"RET"</span>) 'dired-find-alternate-file)</span><br></pre></td></tr></table></figure>
+
+<h2 id="company"><a href="#company" class="headerlink" title="company"></a>company</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; 统一用户体验</span></span><br><span class="line">(<span class="name">global-company-mode</span> <span class="literal">t</span>)</span><br><span class="line"></span><br><span class="line">(<span class="name">with-eval-after-load</span> 'company</span><br><span class="line">                      (<span class="name">define-key</span> company-active-map (<span class="name">kdb</span> <span class="string">"M-n"</span>) <span class="literal">nil</span>)</span><br><span class="line">                      (<span class="name">define-key</span> company-active-map (<span class="name">kdb</span> <span class="string">"M-p"</span>) <span class="literal">nil</span>)</span><br><span class="line">                      (<span class="name">define-key</span> company-active-map (<span class="name">kdb</span> <span class="string">"C-n"</span>) #'company-select-next)</span><br><span class="line">                      (<span class="name">define-key</span> company-active-map (<span class="name">kdb</span> <span class="string">"C-p"</span>)#'company-select-previous))</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2020/05/21/Editor/emacs/emacs%E6%89%8B%E5%86%8C/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Editor/emacs/emacs手册</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/05/21/Databases/MySQL/">
+        <span class="next-text nav-default">《MySQL必知必会》笔记</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

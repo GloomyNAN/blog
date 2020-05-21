@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Git常用命令_0111"/><meta name="keywords" content="git, Yikes" /><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/etc/Git常用命令_0111/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Git常用命令_0111 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Git常用命令_0111
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>###git设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+<p>设置文件大小写敏感<br>ssh-keygen -t rsa -C “you email”    创建SSH Key用户主目录.ssh目录，里面id_rsa是私钥和id_rsa.pub是公钥<br>登陆GitHub，打开“settings”，“SSH Keys”页面点“Add SSH Key”，填上任意Title，在Key框里粘贴id_rsa.pub文件的内容</p>
+<p>修改SSH-keygen密码</p>
+<pre><code>ssh-keygen -p</code></pre><p>Git 全局设置:</p>
+<pre><code>git config --global user.name &quot;Your Name&quot;    设置昵称
+git config --global user.email &quot;email@email.com&quot;    设置邮箱</code></pre><p>###项目初始化或克隆<br>git remote set-url origin <a href="mailto:git@git.oschina.net">git@git.oschina.net</a>:mojzuo/idc.mojzuo.com.git</p>
+<h3 id="1、无项目初始化"><a href="#1、无项目初始化" class="headerlink" title="1、无项目初始化"></a>1、无项目初始化</h3><h3 id="创建-git-仓库"><a href="#创建-git-仓库" class="headerlink" title="创建 git 仓库"></a>创建 git 仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir git_repo</span><br><span class="line">cd git_repo</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin 版本库地址</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h1 id="2、已有项目初始化"><a href="#2、已有项目初始化" class="headerlink" title="2、已有项目初始化"></a>2、已有项目初始化</h1><p>cd existing_git_repo<br>git remote add origin git_remote<br>git push -u origin master</p>
+<h1 id="3、git克隆"><a href="#3、git克隆" class="headerlink" title="3、git克隆"></a>3、git克隆</h1><p>git clone 版本库地址</p>
+<h1 id="4、更新版本库地址"><a href="#4、更新版本库地址" class="headerlink" title="4、更新版本库地址"></a>4、更新版本库地址</h1><p>git remote set-url origin 地址</p>
+<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><p>git branch        查看分支<br>git branch name        创建分支<br>git checkout name     切换分支<br>git checkout -b name     创建+切换分支<br>git checkout -b dev origin/dev    建立与远程对应的分支<br>git branch –set-upstream dev origin/dev   本地分支与远程关联<br>git merge name         合并name到当前分支<br>git branch -d name    删除本地分支<br>git branch -r -d origin/branch-name<br>git push origin :branch-name 删除远程分支</p>
+<p>###修改&amp;提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">git status 						查看状态</span><br><span class="line">git remote -v					查看远程库信息</span><br><span class="line">git pull 						抓取远程的新提交</span><br><span class="line">git add -A 						提交所有修改到工作区</span><br><span class="line">git commit -a -m &#39;备注&#39;  		提交修改到缓存区</span><br><span class="line">git push origin branch_name  	本地分支推送到远程</span><br><span class="line">git push -file       强推命令</span><br><span class="line">git add		    添加多个文件</span><br><span class="line">git diff 	          查看修改的内容</span><br><span class="line">git diff master</span><br><span class="line">git diff --cached</span><br><span class="line">git reset --hard origin&#x2F;branch 	撤销本地修改命令</span><br><span class="line">git reset --hard HEAD^			上一版本</span><br><span class="line">git reset --hard 3628164 		具体版本号</span><br><span class="line">git checkout .</span><br><span class="line">git checkout -- file  			丢弃工作区的修改</span><br><span class="line">git reset HEAD file   			把暂存区的修改撤销掉</span><br><span class="line">rm file 	删除文件</span><br><span class="line">git rm file	删除版本库中的文件</span><br><span class="line">git log	--pretty&#x3D;oneline 查看提交日志</span><br><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit 查看分支合并图</span><br><span class="line">git reflog	查看历史命令及版本号</span><br><span class="line">git rm --cached . -r 撤回暂存区内容</span><br></pre></td></tr></table></figure>
+
+<p>###暂存</p>
+<p>git stash        把当前工作暂存下<br>git stash list    查看保存的工作<br>git stash apply    恢复工作<br>git stash drop    删除工作暂存<br>git stash pop    恢复并删除暂存工作</p>
+<p>###标签</p>
+<p>git tag name(1.0) 创建新标签<br>git log –pretty=oneline –abbrev-commit 提交日志<br>git tag v1.0 (commit id)  创建标签加提交id<br>git tag        查看所有标签<br>git tag -d v0.9   删除本地标签<br>git push origin v1.0     推送标签到远程<br>git push origin –tags    推送全部标签到远程<br>git push origin :refs/tags/v1.0      删除远程库的标签</p>
+<p>###分支&amp;跟踪</p>
+<p>$ git pull origin next:master                    取回origin主机的next分支，与本地的master分支合并，需要写成下面这样。<br>$ git branch –track master origin/分支名            设置追踪分支（master_本地追踪分支，分支名是远程的）<br>$ git pull origin test                            pull远程分支<br>$ git merge 可以合并多个分支以空格分割<br>git merge –no-ff -m “merge with no-ff” dev     –no-ff参数，表示禁用Fast forward创建一个新的commit，所以加上-m参数</p>
+<p>###建立子项目</p>
+<p>1、添加子模块<br>git submodule add <a href="mailto:git@git.oschina.net">git@git.oschina.net</a>:GloomyNAN/mojzuo.git</p>
+<p>2、#git会在项目下生成.gitmodule<br>cat .gitmodule<br>[submodule “mojzuo”]<br>    path = mojzuo<br>    url = <a href="mailto:git@git.oschina.net">git@git.oschina.net</a>:GloomyNAN/mojzuo.git</p>
+<p>3、进入libs/lib1目录<br>cd libs/lib1</p>
+<p>4、操作新的库lib1,看得出是lib1自己的库remote信息。<br>git remote -v</p>
+<p>5、进入项目根目录，初始化submodule,更新submodule(必须在根目录执行命令)<br>cd ../../<br>git submodule init<br>git submodule update</p>
+<p>git[<br>    一不小心把本地的临时分支push到server上去了，想要删除。<br>    一开始用<br>    git branch -r -d origin/branch-name<br>    不成功，发现只是删除的本地对该远程分支的track，正确的方法应该是这样：<br>    git push origin :branch-name<br>    冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。<br>]</p>
+<p>git-简明指南 <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
+<p><strong>配置命令行显示分支名</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># .bash_profile</span><br><span class="line">function git_branch &#123;</span><br><span class="line">  branch&#x3D;&quot;&#96;git branch 2&gt;&#x2F;dev&#x2F;null | grep &quot;^\*&quot; | sed -e &quot;s&#x2F;^\*\ &#x2F;&#x2F;&quot;&#96;&quot;</span><br><span class="line">  if [ &quot;$&#123;branch&#125;&quot; !&#x3D; &quot;&quot; ];then</span><br><span class="line">      if [ &quot;$&#123;branch&#125;&quot; &#x3D; &quot;(no branch)&quot; ];then</span><br><span class="line">          branch&#x3D;&quot;(&#96;git rev-parse --short HEAD&#96;...)&quot;</span><br><span class="line">      fi</span><br><span class="line">      echo &quot; ($branch)&quot;</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line">export PS1&#x3D;&#39;\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ &#39;</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-rebase-冲突如何解决"><a href="#git-rebase-冲突如何解决" class="headerlink" title="git rebase 冲突如何解决"></a>git rebase 冲突如何解决</h2><ol>
+<li><code>git status</code>查看冲突文件</li>
+<li>打开文件解决冲突，并<code>git add -A</code>所有修改</li>
+<li><code>git rebase --continue</code>继续合并</li>
+</ol>
+<p>rebase 选项说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 继续变基</span><br><span class="line">git reabse --continue</span><br><span class="line"># 跳过此次冲突</span><br><span class="line">git rebase --skip</span><br><span class="line"># 撤销变基</span><br><span class="line">git rebase --abort</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Git别名"><a href="#Git别名" class="headerlink" title="Git别名"></a>Git别名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gst  #&#x3D;&gt; git status</span><br><span class="line">gll  #&#x3D;&gt; git log --pretty&#x3D;&quot;format:%C(yellow)%h%C(green)%d %C(white)%s %C(cyan)%an, %ar %Creset --graph&quot;</span><br><span class="line">glla #&#x3D;&gt; gll --all</span><br><span class="line">gb   #&#x3D;&gt; git branch</span><br><span class="line">gba  #&#x3D;&gt; git branch --all</span><br><span class="line">gp   #&#x3D;&gt; git push</span><br><span class="line">gl   #&#x3D;&gt; git pull</span><br><span class="line">glr  #&#x3D;&gt; git pull --rebase</span><br><span class="line">gco  #&#x3D;&gt; git checkout</span><br><span class="line">gsu  #&#x3D;&gt; git stash -u</span><br><span class="line">gsp  #&#x3D;&gt; git stash pop</span><br><span class="line">grm  #&#x3D;&gt; git rebase master</span><br><span class="line">grc  #&#x3D;&gt; git rebase --continue</span><br><span class="line">gcp  #&#x3D;&gt; git cherry-pick</span><br><span class="line">gcm  #&#x3D;&gt; git commit --message</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://blog.csdn.net/kun525331194/article/details/54262903" target="_blank" rel="noopener">http://blog.csdn.net/kun525331194/article/details/54262903</a></p>
+<p><a href="http://blog.csdn.net/DinnerHowe/article/details/63683468" target="_blank" rel="noopener">http://blog.csdn.net/DinnerHowe/article/details/63683468</a></p>
+<p> git config –global http.sslVerify true</p>
+<p><a href="https://blog.csdn.net/qq_37281252/article/details/79064638" target="_blank" rel="noopener">https://blog.csdn.net/qq_37281252/article/details/79064638</a></p>
+<p>git remote prune origin 清除本地和远程不同步分支</p>
+<h1 id="tower-命令记录"><a href="#tower-命令记录" class="headerlink" title="tower 命令记录"></a>tower 命令记录</h1><h2 id="CREATE"><a href="#CREATE" class="headerlink" title="CREATE"></a>CREATE</h2><p>Clone an existing repository<br><code>$ git clone ssh://user@domain.com/repo.git</code></p>
+<p>Create a new local repository<br><code>$ git init</code></p>
+<h2 id="LOCAL-CHANGES"><a href="#LOCAL-CHANGES" class="headerlink" title="LOCAL CHANGES"></a>LOCAL CHANGES</h2><p>Changed files in your  working directory<br><code>$ git status</code></p>
+<p>Changes to tracked files<br><code>$ git diff</code></p>
+<p>Add all current changes to the next commit<br><code>$ git add .</code></p>
+<p>Add some changes in <file> to the next commit<br><code>$ git add -p &lt;file&gt;</code></p>
+<p>Commit all local changes in tracked files<br><code>$ git commit -a</code></p>
+<p>Commit previously staged changes<br><code>$ git commit</code></p>
+<p>Change the last commit<br><em>Don‘t amend published commits!</em><br><code>$ git commit --amend</code></p>
+<h2 id="COMMIT-HISTORY"><a href="#COMMIT-HISTORY" class="headerlink" title="COMMIT HISTORY"></a>COMMIT HISTORY</h2><p>Show all commits, starting with newest<br><code>$ git log</code></p>
+<p>Show changes over time for a specific file<br><code>$ git log -p &lt;file&gt;</code></p>
+<p>Who changed what and when in <file><br><code>$ git blame &lt;file&gt;</code></p>
+<h2 id="BRANCHES-amp-TAGS"><a href="#BRANCHES-amp-TAGS" class="headerlink" title="BRANCHES &amp; TAGS"></a>BRANCHES &amp; TAGS</h2><p>List all existing branches<br><code>$ git branch -av</code></p>
+<p>Switch HEAD branch<br><code>$ git checkout &lt;branch&gt;</code></p>
+<p>Create a new branch based on your current HEAD<br><code>$ git branch &lt;new-branch&gt;</code></p>
+<p>Create a new tracking branch based on a remote branch<br><code>$ git checkout --track &lt;remote/bran-ch&gt;</code></p>
+<p>Delete a local branch<br><code>$ git branch -d &lt;branch&gt;</code></p>
+<p>Mark the current commit with a tag<br><code>$ git tag &lt;tag-name&gt;</code></p>
+<h2 id="UPDATE-amp-PUBLISH"><a href="#UPDATE-amp-PUBLISH" class="headerlink" title="UPDATE &amp; PUBLISH"></a>UPDATE &amp; PUBLISH</h2><p>List all currently configured remotes<br><code>$ git remote -v</code></p>
+<p>Show information about a remote<br><code>$ git remote show &lt;remote&gt;</code></p>
+<p>Add new remote repository, named <remote><br><code>$ git remote add &lt;shortname&gt; &lt;url&gt;</code></p>
+<p>Download all changes from <remote>, but don‘t integrate into HEAD<br><code>$ git fetch &lt;remote&gt;</code></p>
+<p>Download changes and directly merge/integrate into HEAD<br><code>$ git pull &lt;remote&gt; &lt;branch&gt;</code></p>
+<p>Publish local changes on a remote<br><code>$ git push &lt;remote&gt; &lt;branch&gt;</code></p>
+<p>Delete a branch on the remote<br><code>$ git branch -dr &lt;remote/branch&gt;</code></p>
+<p>Publish your tags<br><code>$ git push --tags</code></p>
+<h2 id="MERGE-amp-REBASE"><a href="#MERGE-amp-REBASE" class="headerlink" title="MERGE &amp; REBASE"></a>MERGE &amp; REBASE</h2><p>Merge <branch> into your current HEAD<br><code>$ git merge &lt;branch&gt;</code></p>
+<p>Rebase your current HEAD onto <branch><br><em>Don‘t rebase published commits!</em><br><code>$ git rebase &lt;branch&gt;</code></p>
+<p>Abort a rebase<br><code>$ git rebase --abort</code></p>
+<p>Continue a rebase after resolving conflicts<br><code>$ git rebase --continue</code></p>
+<p>Use your configured merge tool to solve conflicts<br>$ git mergetool</p>
+<p>Use your editor to manually solve conflicts and (after resolving) mark file as resolved</p>
+<p><code>$    git add &lt;resolved-file&gt;</code><br><code>$    git rm &lt;resolved-file&gt;</code></p>
+<h2 id="UNDO"><a href="#UNDO" class="headerlink" title="UNDO"></a>UNDO</h2><p>Discard all local changes in your working directory<br><code>$ git reset --hard HEAD</code></p>
+<p>Discard local changes in a specific file<br><code>$ git checkout HEAD &lt;file&gt;</code></p>
+<p>Revert a commit (by producing a new commit with contrary changes)</p>
+<p><code>$ git revert &lt;commit&gt;</code></p>
+<p>Reset your HEAD pointer to a previous commit …and discard all changes since then</p>
+<p><code>$ git reset --hard &lt;commit&gt;</code></p>
+<p>…and preserve all changes as unstaged changes</p>
+<p><code>$ git reset &lt;commit&gt;</code></p>
+<p>…and preserve uncommitted local changes</p>
+<p><code>$ git reset --keep &lt;commit&gt;</code></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/git/">git</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Linux/TCPdump/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">TCP dump</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/Package%20Manager/Npm/">
+        <span class="next-text nav-default">Npm</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="MacOS"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2017/12/01/etc/Mac OS/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>MacOS - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">MacOS
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>清除 hidden spaces<br>sudo rm -rf /.DocumentRevisions-V100</p>
+<p><a href="https://7449.github.io/2017/07/04/mac-reloading/" target="_blank" rel="noopener">记录装软件</a><br>杀死dock&amp;launchpad</p>
+<pre><code>defaults write com.apple.dock ResetLaunchPad -bool true;killall Dock</code></pre><p>任何来源命令</p>
+<pre><code>sudo spctl --master-disable</code></pre><p>显隐隐藏文件</p>
+<pre><code>Command+Shift+.</code></pre><p>在苹果电脑设置最新Android Studio的JDK路径时，需要将路径指向由系统自带的JDK6路径/</p>
+<pre><code>System/Library/Java/JavaVirtualMachines/1.6.0.jdk/转为我们自己从ORICAL下载的最新JDK8安装路径。</code></pre><p>JDK8以及JDK7安装的默认路径为：</p>
+<pre><code>/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+p shell中上一个命令,或者 文本中移动到上一行</span><br><span class="line">Ctrl+n shell中下一个命令,或者 文本中移动到下一行</span><br><span class="line">Ctrl+r 往后搜索历史命令</span><br><span class="line">Ctrl+s 往前搜索历史命令</span><br><span class="line">Ctrl+f 光标前移</span><br><span class="line">Ctrl+b 光标后退</span><br><span class="line">Ctrl+a 到行首</span><br><span class="line">Ctrl+e 到行尾</span><br><span class="line">Ctrl+d 删除一个字符,删除一个字符，相当于通常的Delete键</span><br><span class="line">Ctrl+h 退格删除一个字符,相当于通常的Backspace键</span><br><span class="line">Ctrl+u 删除到行首</span><br><span class="line">Ctrl+k 删除到行尾</span><br><span class="line">Ctrl+l 类似 clear 命令效果</span><br><span class="line">Ctrl+y 粘贴</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>最新版的 Mac 不需要额外的程序了，在 Finder 里按「⌘+shift+.」就能显示隐藏文件，再按一次隐藏掉。╮(￣▽￣”)╭</p>
+<p>大概是从 macOS Sierra 开始有这个功能的。</p>
+<p>修改软件默认语言</p>
+<p><code>defaults write &lt;CFBundleIdentifier&gt; AppleLanguages &#39;(&quot;zh-cn&quot;)&#39;</code><br>例如：企业微信报名为com.tencent.WeWorkMac</p>
+<h2 id="刷新DNS"><a href="#刷新DNS" class="headerlink" title="刷新DNS"></a>刷新DNS</h2><p><a href="media/%E5%AE%B6%E9%95%BF%E6%8E%A5%E5%BE%85%E6%B5%81%E7%A8%8B.md">家长接待流程</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder;say DNS cache has been flushed</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://www.ifixit.com/Guide/MacBook+电源线5针+MagSafe+连接器和电缆更换/21842?lang=zh" target="_blank" rel="noopener">修复mac充电线</a></p>
+<p><a href="https://www.bilibili.com/video/av42174682/" target="_blank" rel="noopener">https://www.bilibili.com/video/av42174682/</a></p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/12/01/etc/%E7%BD%91%E5%9D%80%E8%AE%B0%E5%BD%95/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">网址记录</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2015/07/18/etc/%E3%80%90%E8%BD%AC%E3%80%91htaccess%E8%AF%AD%E6%B3%95%E4%B9%8BRewriteCond%E4%B8%8ERewriteRule%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A/">
+        <span class="next-text nav-default">【转】htaccess语法之RewriteCond与RewriteRule指令格式详细解释</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【转】想要开发自己的PHP框架需要那些知识储备？"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2017/12/01/etc/想要开发自己的PHP框架需要那些知识储备？/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>【转】想要开发自己的PHP框架需要那些知识储备？ - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【转】想要开发自己的PHP框架需要那些知识储备？
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>作者：安正超<br>链接：<a href="https://www.zhihu.com/question/26635323/answer/33812516" target="_blank" rel="noopener">https://www.zhihu.com/question/26635323/answer/33812516</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>很多人当听到别人要开发框架的时候第一想法就是，又重复造轮子。其实造轮子的过程是一个快速积累知识的过程，能较快的发现自己的不足，以及学到一些自己未发现的知识点。所以建议在有一定PHP基础的情况下，都去尝试完成一个五脏俱全的基本框架吧。</p>
+<p>那么下面分享一下我之前造轮子的过程吧：</p>
+<ol>
+<li>尝试试用一个以上的框架，看完一遍使用文档，目的在于了解它都有哪些功能，发现他的一些比较好的用法设计；</li>
+<li>在看文档的同时并行的思考这一部分的实现原理，如果想不明白则记下来或者上Github去看源码（当然在不熟悉代码结构的情况下可能很难找，所以我建议还是先记下来）；</li>
+<li>看它的项目结构，同时思考这个结构的意义，比如现在大部分框架都把入口文件与静态资源单独放到public目录里与其它目录分开的原因是什么；</li>
+<li>尝试看一遍源码的运行流程，从入口到输出，以及错误处理，模板引擎，配置等多个点了解一下（如果基础允许的话，在这过程中解决上面记下来的疑点吧）；</li>
+<li>开始自己实现吧，先写一个大概的功能列表，把你要实现的点写出来；</li>
+<li>然后思考如果组织代码结构，在没有太多实践经验的情况下就按你最熟悉的方式组织吧（先实现再优化）；</li>
+<li>先跑通基本的hello world!；</li>
+<li>一点点加功能吧；</li>
+<li>发现不足，改进它；</li>
+</ol>
+<p>这里在加功能的时候，尽量自己实现所有的能实现的组件，比如文件上传，错误处理等等，毕竟目的是实习知识。</p>
+<p>那么这过程其实走下来对于基础稍差的人来说可能会特别不顺利，那么没关系，遇到哪一个点卡住，先解决你对这个点的问题，快速补充知识再回来继续。</p>
+<p>总结一些在造框架过程中通常会用到的一些点吧（以下排列没有先后顺序）：</p>
+<ol>
+<li>MVC</li>
+<li>自动加载: <a href="http://php.net/manual/zh/language.oop5.autoload.php" target="_blank" rel="noopener">PHP: 自动加载类</a>;</li>
+<li>错误处理：<a href="http://php.net/manual/zh/book.errorfunc.php" target="_blank" rel="noopener">PHP：错误处理-Manual</a>;</li>
+<li>PHP标准库 (SPL)PHP: SPL - Manual;</li>
+<li>输出缓冲控制: PHP: 输出控制;</li>
+<li>PHP 选项/信息：PHP:PHP 选项/信息;</li>
+<li>数据库抽象层：PHP: 数据库抽象层;</li>
+<li>session拓展：PHP: Session 扩展;</li>
+<li>反射：<a href="http://php.net/manual/zh/book.reflection.php" target="_blank" rel="noopener">http://php.net/manual/zh/book.reflection.php</a>;</li>
+<li>类和对象：PHP: 类/对象;</li>
+<li>图像处理和 GD：PHP: GD - Manual;</li>
+<li>邮件相关的SMTP;</li>
+<li>文件系统：PHP: Filesystem;</li>
+<li>预定义变量：PHP: 预定义变量;</li>
+<li>字符串处理：PHP: 字符串 - Manual;</li>
+<li>正则表达式: <a href="http://php.net/manual/en/book.pcre.php" target="_blank" rel="noopener">http://php.net/manual/en/book.pcre.php</a>;</li>
+</ol>
+<p>基本的可能上面这些也足够了，虽然上面给的每一个链接都有很多内容，但是掌握常用的就好，可以结合搜索引擎去了解。</p>
+<p>如果你想给框架加一些更巧妙的，或者更丰富的功能的话，这里还有一些知识点：</p>
+<ol>
+<li>常见的设计模式：工厂、单例，外观、观察者等;</li>
+<li>迭代器等预定义接口：PHP: 预定义接口；</li>
+<li>数据库拓展：PHP: 数据库扩展;</li>
+<li>国际化与字符编码支持 PHP: 国际化与字符编码支持;</li>
+<li>常用的缓存，Redis, Memcache,Apc等;</li>
+<li>队列服务如ActiveMQ,Beanstalkd等;</li>
+<li>多数据库支持如Mongo；</li>
+<li>事件与钩子；</li>
+</ol>
+<p>另外还有一种创建框架的方式，不过这里用“创建”已经不太合适了，叫组合框架吧，那就是使用Composer基于开源组件拼装一个属于自己的框架。当然这里不建议新手这么干，这可能会让你在很多基础的东西上得不到锻炼。如果个人技术能力已经比较成熟了，目的在于快速开发项目的时候，用它绝对是利器。</p>
+<p>最后推荐一些参考框架：</p>
+<ol>
+<li>Slim Framework  - 微框架，一个框架基本功能都满足了，很适合用于学习；</li>
+<li>Silex - 微框架，基于Symfony2组件；</li>
+<li>CodeIgniter  - 结构很清晰的PHP框架；</li>
+</ol>
+<p>另外这里还有一些教程可以参考，不过建议先自己尝试：</p>
+<ol>
+<li><a href="http://anantgarg.com/2009/03/13/write-your-own-php-mvc-framework-part-1/" target="_blank" rel="noopener">Write your own PHP MVC Framework (Part 1)</a></li>
+<li><a href="http://www.icultivator.com/p/5284.html" target="_blank" rel="noopener"> 使用PHP搭建自己的MVC框架</a></li>
+</ol>
+<p>— 2015.02.28补充—</p>
+<p>看了楼下各位的回答，发现大家都跑题了，题意是“<strong>需要那些知识储备？</strong>” 而不是“<strong>怎样完成一个框架</strong>”，完成框架的方法N种，而且按楼下某些的答案，完成了也学不到啥，甚至为啥这样就可以作为一个框架运行了，中间的原理都不懂，所以请慎重回答以免误导别人。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/12/01/etc/IOS%E5%BC%80%E5%8F%91/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">IOS开发</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2017/12/01/etc/Hexo/">
+        <span class="next-text nav-default">Hexo</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

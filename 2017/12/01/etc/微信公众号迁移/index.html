@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="微信公众号迁移"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2017/12/01/etc/微信公众号迁移/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>微信公众号迁移 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">微信公众号迁移
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-01
+        </span></div>
+    </header>
+
+    <div class="post-content"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">迁移完成，原粉丝的openid会变吗？</span><br><span class="line">会变化。微信用户关注不同的公众号，对应的OpenID是不一样的，迁移成功后，粉丝的OpenID以目标帐号（即新公众号）对应的OpenID为准。但开发者可以通过开发接口转换OpenID，开发文档可以参考：</span><br><span class="line">提供一个openid转换的API接口，当帐号迁移后，可以通过该接口将原帐号粉丝的openid转换为新帐号的openid。</span><br><span class="line">◆ 原帐号：准备要迁移的帐号，当审核完成且管理员确认后即被回收。</span><br><span class="line">◆ 新帐号：用来接纳粉丝的帐号。新帐号在整个流程中均能正常使用。</span><br><span class="line"></span><br><span class="line">一定要按照下面的步骤来操作。</span><br><span class="line">1）一定要在原帐号被冻结之前，最好是准备提交审核前，获取原帐号的用户列表。如果没有原帐号的用户列表，用不了这个转换工具。如果原账号被回收，这时候也没办法调用接口获取用户列表。</span><br><span class="line">如何获取用户列表见这里：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;wiki?t&#x3D;resource&#x2F;res_main&amp;id&#x3D;mp1421140840</span><br><span class="line"></span><br><span class="line">2）转换openid的API接口如下，需等帐号迁移完成后才能调用，并最多保留15天。若帐号迁移没完成，调用时无返回结果或报错。帐号迁移15天后，该转换接口将会失效、无法拉取到数据。</span><br><span class="line">◆ URL：http:&#x2F;&#x2F;api.weixin.qq.com&#x2F;cgi-bin&#x2F;changeopenid?access_token&#x3D;xxxxx</span><br><span class="line">此处token为新帐号的token</span><br><span class="line">◆ 请求方式：post</span><br><span class="line">◆ 请求数据：</span><br><span class="line">&#123;</span><br><span class="line">&quot;to_appid&quot;:&quot;xxxxxxxx&quot;,&#x2F;&#x2F;此处to_appid为原帐号的appid</span><br><span class="line">&quot;openid_list&quot;:[&quot;oEmYbwN-n24jxvk4Sox81qedINkQ&quot;,&quot;oEmYbwH9uVd4RKJk7ZZg6S</span><br><span class="line">zL6tTo&quot;]&#x2F;&#x2F;需要转换的openid，即第1步中拉取的原帐号用户列表，这些必须是旧账号目前关注的才行，否则会出错；一次最多100个，不能多。</span><br><span class="line">&#125;</span><br><span class="line">◆ 输出数据：</span><br><span class="line">&#123;</span><br><span class="line">&quot;errcode&quot;: 0,</span><br><span class="line">&quot;errmsg&quot;: &quot;ok&quot;,</span><br><span class="line">&quot;result_list&quot;: [</span><br><span class="line">&#123;</span><br><span class="line">&quot;ori_openid&quot;: &quot;oEmYbwN-n24jxvk4Sox81qedINkQ&quot;,</span><br><span class="line">&quot;new_openid&quot;: &quot;o2FwqwI9xCsVadFah_HtpPfaR-X4&quot;,</span><br><span class="line">&quot;err_msg&quot;: &quot;ok&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">&quot;ori_openid&quot;: &quot;oEmYbwH9uVd4RKJk7ZZg6SzL6tTo&quot;,</span><br><span class="line">&quot;err_msg&quot;: &quot;ori_openid error&quot;&#x2F;&#x2F;这个openid目前没有关注旧公众号</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line">◆ 错误码：</span><br><span class="line">63178：to_appid参数错误，和调用的账号并没有迁移关系</span><br><span class="line">Ori_openid error：to_appid搞错了，用成了新帐号的appid。</span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/12/01/etc/Docker/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Docker</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2017/12/01/etc/TODO/">
+        <span class="next-text nav-default">TODO</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

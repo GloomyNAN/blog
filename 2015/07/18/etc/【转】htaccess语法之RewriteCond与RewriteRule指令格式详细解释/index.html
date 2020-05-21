@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="【转】htaccess语法之RewriteCond与RewriteRule指令格式详细解释"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2015/07/18/etc/【转】htaccess语法之RewriteCond与RewriteRule指令格式详细解释/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>【转】htaccess语法之RewriteCond与RewriteRule指令格式详细解释 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">【转】htaccess语法之RewriteCond与RewriteRule指令格式详细解释
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>　　转发一篇技术文档，最近将公司的服务器调整了一下配置了web负载均衡，原来的思路是开443端口然后绑定ssl证书，用Apache自带的rewrite来做跳转，实现全站https，但是后来发现还是不方便，在流量暴增的情况下，一台服务器再强大肯定有宕机的风险，所以配置web负载均衡，随时用镜像建立服务器做内网轮训策略，后来将ssl证书绑定到负载均衡上，实现服务器只开启80端口，用负载均衡绑定的证书来监听80端口做转发，以前写的rewrite规则就会报循环过多，而且机器随时增加的情况下，后端设置过多，负载均衡绑定证书设置一次就好，查了资料现在亲测好用，所以留个记录；</p>
+<blockquote>
+<p>原后端绑定https，.htaccess文件内容</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">IfModule mod_rewrite.c&gt;</span><br><span class="line">　　Options +FollowSymLinks</span><br><span class="line">　　IndexIgnore *&#x2F;*</span><br><span class="line">　　RewriteEngine on</span><br><span class="line">　　#将不带www的主域名跳转到带www的根域名上</span><br><span class="line">　　#RewriteCond %&#123;HTTP_HOST&#125; ^webanking.com [NC]</span><br><span class="line">　　#RewriteRule ^(.*)$ https:&#x2F;&#x2F;www.webanking.com&#x2F;$1 [L,R&#x3D;301]</span><br><span class="line">　　#强制 HTTPS</span><br><span class="line">　　#RewriteCond %&#123;HTTPS&#125; !&#x3D;on</span><br><span class="line">　　#RewriteRule ^(.*) https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;&#x2F;$1 [L,R]</span><br><span class="line">　　# if a directory or a file exists, use it directly</span><br><span class="line">　　RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">　　RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">　　# otherwise forward it to index.php</span><br><span class="line">　　RewriteRule . index.php</span><br><span class="line">　　&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>现在web负载均衡绑定证书，.htaccess文件内容</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">　&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">　　Options +FollowSymLinks</span><br><span class="line">　　IndexIgnore *&#x2F;*</span><br><span class="line">　　RewriteEngine on</span><br><span class="line">　　#RewriteRule ^(.*) https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;&#x2F;$1 [L,R]</span><br><span class="line">　　# if a directory or a file exists, use it directly</span><br><span class="line">　　RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">　　RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">　　# otherwise forward it to index.php</span><br><span class="line">　　RewriteRule . index.php</span><br><span class="line">　　#强制 HTTPS 通过代理</span><br><span class="line">　　RewriteCond %&#123;HTTP:X-Forwarded-Proto&#125; !https</span><br><span class="line">　　RewriteRule (.*) https:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;%&#123;REQUEST_URI&#125;</span><br><span class="line">　　#判断端口</span><br><span class="line">　　#RewriteCond %&#123;SERVER_PORT&#125; 80</span><br><span class="line">　　# RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;&#x2F;$1 [L,R]</span><br><span class="line">　　&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
+
+<p>　　上文htaccess语法详细解释与用例分析中对RewriteCond和RewriteRule的用法进行了举例分析，本文将详细描述上述两个命令的使用格式，与所使用的变量和规则。这篇文章很长啊哈，请认真阅读，内容都很有用哦。<br>　　<br>　　　RewriteCond指令格式</p>
+<p>　　【说明】定义重写发生的条件</p>
+<p>　　【语法】RewriteCond TestString CondPattern [flags]</p>
+<p>　　RewriteCond指令定义一条规则条件。在一条RewriteRule指令前面可能会有一条或多条RewriteCond指令，只有当RewriteCond的条件(CondPattern)匹配成功时，RewriteRule的重写规则才被应用于当前URL处理。</p>
+<p>　　TestString是一个纯文本的字符串，除了包含普通的字符外，还可以包括下列的变量结构扩展：</p>
+<p>　　RewriteMap扩展：引用方法是：${mapname:key|default} 细节请参见RewriteMap指令 。</p>
+<p>　　TestString可以包含服务器变量 ，引用方法是：%{NAME_OF_VARIABLE}</p>
+<p>　　NAME_OF_VARIABLE可以是下表列出的字符串之一：</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2017/12/01/etc/Mac%20OS/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">MacOS</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

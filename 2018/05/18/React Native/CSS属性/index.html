@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="ReaceNativeCSS属性"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/05/18/React Native/CSS属性/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>ReaceNativeCSS属性 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">ReaceNativeCSS属性
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-18
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="View-Style"><a href="#View-Style" class="headerlink" title="View Style"></a>View Style</h2><p>支持Flexbox、ShadowPropTypesIOS、Transforms属性。</p>
+<p>背面可见性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backfaceVisibility enum(&#39;visible&#39;, &#39;hidden&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>背景颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgroundColor string</span><br></pre></td></tr></table></figure>
+
+<p>边框颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">borderColor string</span><br><span class="line">borderTopColor string</span><br><span class="line">borderRightColor string</span><br><span class="line">borderBottomColor string</span><br><span class="line">borderLeftColor string</span><br></pre></td></tr></table></figure>
+
+<p>边框圆角半径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">borderRadius number</span><br><span class="line">borderTopLeftRadius number</span><br><span class="line">borderTopRightRadius number</span><br><span class="line">borderBottomLeftRadius number</span><br><span class="line">borderBottomRightRadius number</span><br></pre></td></tr></table></figure>
+
+<p>边框样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">borderStyle enum(&#39;solid&#39;, &#39;dotted&#39;, &#39;dashed&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>边框宽度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">borderWidth number</span><br><span class="line">borderTopWidth number</span><br><span class="line">borderRightWidth number</span><br><span class="line">borderBottomWidth number</span><br><span class="line">borderLeftWidth number</span><br></pre></td></tr></table></figure>
+
+<p>不透明度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opacity number</span><br></pre></td></tr></table></figure>
+
+<p>填充</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">overflow enum(&#39;visible&#39;, &#39;hidden&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>测试ID（用来定位视图）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">testID string</span><br></pre></td></tr></table></figure>
+
+<p>##Image Style</p>
+<p>支持Flexbox和Transforms</p>
+<p>调整大小模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resizeMode Object.keys(ImageResizeMode)</span><br></pre></td></tr></table></figure>
+
+<p>背景颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgroundColor string</span><br></pre></td></tr></table></figure>
+
+<p>边框属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">borderColor string</span><br><span class="line">borderWidth number</span><br><span class="line">borderRadius number</span><br></pre></td></tr></table></figure>
+
+<p>填充</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">overflow enum(&#39;visible&#39;, &#39;hidden&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>色彩颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tintColor string</span><br></pre></td></tr></table></figure>
+
+<p>不透明度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opacity number</span><br></pre></td></tr></table></figure>
+
+<p>##Text Style</p>
+<p>支持View的样式</p>
+<p>字体颜色</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">color string</span><br></pre></td></tr></table></figure>
+
+<p>字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontFamily string</span><br></pre></td></tr></table></figure>
+
+<p>字体大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontSize number</span><br></pre></td></tr></table></figure>
+
+<p>字体样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontStyle enum(&#39;normal&#39;, &#39;italic&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>字体粗细（指定字体的粗细。大多数字体都支持’normal’和’bold’值。并非所有字体都支持所有的数字值。如果某个值不支持，则会自动选择最接近的值。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fontWeight enum(&quot;normal&quot;, &#39;bold&#39;, &#39;100&#39;, &#39;200&#39;, &#39;300&#39;, &#39;400&#39;, &#39;500&#39;, &#39;600&#39;, &#39;700&#39;, &#39;800&#39;, &#39;900&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>字间距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">letterSpacing number</span><br></pre></td></tr></table></figure>
+
+<p>行间距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lineHeight number</span><br></pre></td></tr></table></figure>
+
+<p>字体对齐方式（指定文本的对齐方式。其中’justify’值仅iOS支持。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textAlign enum(&quot;auto&quot;, &#39;left&#39;, &#39;right&#39;, &#39;center&#39;, &#39;justify&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>##Flexbox Style</p>
+<p>宽高</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">width number</span><br><span class="line">height number</span><br></pre></td></tr></table></figure>
+
+<p>项目对齐</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alignItems enum(&#39;flex-start&#39;, &#39;flex-end&#39;, &#39;center&#39;, &#39;stretch&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>自身对齐</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alignSelf enum(&#39;auto&#39;, &#39;flex-start&#39;, &#39;flex-end&#39;, &#39;center&#39;, &#39;stretch&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>边框宽度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">borderBottomWidth number</span><br><span class="line">borderLeftWidth number</span><br><span class="line">borderRightWidth number</span><br><span class="line">borderTopWidth number</span><br><span class="line">borderWidth number</span><br></pre></td></tr></table></figure>
+
+<p>弹性伸缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex number</span><br></pre></td></tr></table></figure>
+
+<p>弹性伸缩方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flexDirection enum(&#39;row&#39;, &#39;column&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>弹性伸缩包裹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flexWrap enum(&#39;wrap&#39;, &#39;nowrap&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>证明内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">justifyContent enum(&#39;flex-start&#39;, &#39;flex-end&#39;, &#39;center&#39;, &#39;space-between&#39;, &#39;space-around&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>外边距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">margin number</span><br><span class="line">marginBottom number</span><br><span class="line">marginLeft number</span><br><span class="line">marginRight number</span><br><span class="line">marginTop number</span><br><span class="line">marginHorizontal number</span><br><span class="line">marginVertical number</span><br></pre></td></tr></table></figure>
+
+<p>内边距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">padding number</span><br><span class="line">paddingBottom number</span><br><span class="line">paddingLeft number</span><br><span class="line">paddingRight number</span><br><span class="line">paddingTop number</span><br><span class="line">paddingHorizontal number</span><br><span class="line">paddingVertical number</span><br></pre></td></tr></table></figure>
+
+<p>位置（绝对、相对）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">position enum(&#39;absolute&#39;, &#39;relative&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>上下左右</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">right number</span><br><span class="line">top number</span><br><span class="line">left number</span><br><span class="line">bottom number</span><br></pre></td></tr></table></figure>
+
+<p>##Transform</p>
+<p>属性变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform [&#123;perspective: number&#125;, &#123;rotate: string&#125;, &#123;rotateX: string&#125;, &#123;rotateY: string&#125;, &#123;rotateZ: string&#125;, &#123;scale: number&#125;, &#123;scaleX: number&#125;, &#123;scaleY: number&#125;, &#123;translateX: number&#125;, &#123;translateY: number&#125;, &#123;skewX: string&#125;, &#123;skewY: string&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>属性矩阵</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transformMatrix TransformMatrixPropType</span><br></pre></td></tr></table></figure>
+
+<p>##阴影</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shadowColor color</span><br><span class="line">Sets the drop shadow color</span><br><span class="line">shadowOffset &#123;width: number, height: number&#125;</span><br><span class="line">Sets the drop shadow offset</span><br><span class="line">shadowOpacity number</span><br><span class="line">Sets the drop shadow opacity (multiplied by the color&#39;s alpha component)</span><br><span class="line">shadowRadius number</span><br><span class="line">Sets the drop shadow blur radius</span><br><span class="line">——— react native official docs</span><br></pre></td></tr></table></figure>
+
+
+<p>Valid style props: [<br>  “alignItems”,<br>  “alignSelf”,<br>  “backfaceVisibility”,<br>  “backgroundColor”,<br>  “borderBottomColor”,<br>  “borderBottomLeftRadius”,<br>  “borderBottomRightRadius”,<br>  “borderBottomWidth”,<br>  “borderColor”,<br>  “borderLeftColor”,<br>  “borderLeftWidth”,<br>  “borderRadius”,<br>  “borderRightColor”,<br>  “borderRightWidth”,<br>  “borderStyle”,<br>  “borderTopColor”,<br>  “borderTopLeftRadius”,<br>  “borderTopRightRadius”,<br>  “borderTopWidth”,<br>  “borderWidth”,<br>  “bottom”,<br>  “color”,<br>  “elevation”,<br>  “flex”,<br>  “flexDirection”,<br>  “flexWrap”,<br>  “fontFamily”,<br>  “fontSize”,<br>  “fontStyle”,<br>  “fontWeight”,<br>  “height”,<br>  “justifyContent”,<br>  “left”,<br>  “letterSpacing”,<br>  “lineHeight”,<br>  “margin”,<br>  “marginBottom”,<br>  “marginHorizontal”,<br>  “marginLeft”,<br>  “marginRight”,<br>  “marginTop”,<br>  “marginVertical”,<br>  “opacity”,<br>  “overflow”,<br>  “overlayColor”,<br>  “padding”,<br>  “paddingBottom”,<br>  “paddingHorizontal”,<br>  “paddingLeft”,<br>  “paddingRight”,<br>  “paddingTop”,<br>  “paddingVertical”,<br>  “position”,<br>  “resizeMode”,<br>  “right”,<br>  “rotation”,<br>  “scaleX”,<br>  “scaleY”,<br>  “shadowColor”,<br>  “shadowOffset”,<br>  “shadowOpacity”,<br>  “shadowRadius”,<br>  “textAlign”,<br>  “textAlignVertical”,<br>  “textDecorationColor”,<br>  “textDecorationLine”,<br>  “textDecorationStyle”,<br>  “textShadowColor”,<br>  “textShadowOffset”,<br>  “textShadowRadius”,<br>  “tintColor”,<br>  “top”,<br>  “transform”,<br>  “transformMatrix”,<br>  “translateX”,<br>  “translateY”,<br>  “width”,<br>  “writingDirection”]</p>
+<p>隐藏元素-only Text</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#1</span><br><span class="line">&lt;Text style&#x3D;&#123;</span><br><span class="line">    &#123;display: this.state.status ? &#39;block&#39;: &#39;none&#39;&#125;</span><br><span class="line">&#125;&gt;</span><br><span class="line">&lt;&#x2F;Text&gt;</span><br><span class="line">#2</span><br><span class="line">&lt;View style&#x3D;&#123;[styles.data, this.state.status ? &#39;&#39; : styles.hide]&#125;&gt;</span><br><span class="line">    &lt;View style&#x3D;&#123;styles.dataItem&#125;&gt;</span><br><span class="line">        &lt;Text style&#x3D;&#123;styles.dataText&#125;&gt;指标1：xxxxx&lt;&#x2F;Text&gt;</span><br><span class="line">    &lt;&#x2F;View&gt;</span><br><span class="line">    &lt;View style&#x3D;&#123;styles.dataItem&#125;&gt;</span><br><span class="line">        &lt;Text style&#x3D;&#123;styles.dataText&#125;&gt;指标2：xxxxx&lt;&#x2F;Text&gt;</span><br><span class="line">    &lt;&#x2F;View&gt;</span><br><span class="line">&lt;&#x2F;View&gt;</span><br><span class="line">const styles &#x3D; &#123;</span><br><span class="line">    data: &#123;</span><br><span class="line">        marginTop: 10,</span><br><span class="line">        borderColor: &#39;#ccc&#39;,</span><br><span class="line">        borderTopWidth: onePixel,</span><br><span class="line">        borderRightWidth: onePixel,</span><br><span class="line">    &#125;,</span><br><span class="line">    dataItem: &#123;</span><br><span class="line">        borderColor: &#39;#ccc&#39;,</span><br><span class="line">        borderLeftWidth: onePixel,</span><br><span class="line">        borderBottomWidth: onePixel,</span><br><span class="line">    &#125;,</span><br><span class="line">    dataText: &#123;</span><br><span class="line">        padding: 3,</span><br><span class="line">        fontSize: 12,</span><br><span class="line">        color: &#39;#333&#39;,</span><br><span class="line">    &#125;,</span><br><span class="line">    hide: &#123;</span><br><span class="line">        opacity: 0,</span><br><span class="line">        height: 0,</span><br><span class="line">        marginTop: 0,</span><br><span class="line">        overflow: &#39;hidden&#39;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/05/18/React%20Native/ES6%E5%AD%A6%E4%B9%A0/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">ES6学习</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/04/27/Linux/iptables%E6%89%8B%E5%86%8C/">
+        <span class="next-text nav-default">iptables手册</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

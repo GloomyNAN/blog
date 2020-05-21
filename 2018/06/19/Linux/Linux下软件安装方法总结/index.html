@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Linux下软件安装方法总结"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Linux/Linux下软件安装方法总结/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Linux下软件安装方法总结 - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Linux下软件安装方法总结
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="一、rpm包安装方式步骤："><a href="#一、rpm包安装方式步骤：" class="headerlink" title="一、rpm包安装方式步骤："></a>一、rpm包安装方式步骤：</h2><ol>
+<li>找到相应的软件包，比如soft.version.rpm，下载到本机某个目录；</li>
+<li>打开一个终端，su -成root用户；</li>
+<li>cd soft.version.rpm所在的目录；</li>
+<li>输入rpm -ivh soft.version.rpm</li>
+</ol>
+<h2 id="二、deb包安装方式步骤："><a href="#二、deb包安装方式步骤：" class="headerlink" title="二、deb包安装方式步骤："></a>二、deb包安装方式步骤：</h2><ol>
+<li>找到相应的软件包，比如soft.version.deb，下载到本机某个目录；</li>
+<li>打开一个终端，su -成root用户；</li>
+<li>cd soft.version.deb所在的目录；</li>
+<li>输入dpkg -i soft.version.deb</li>
+</ol>
+<h2 id="三、tar-gz源代码包安装方式："><a href="#三、tar-gz源代码包安装方式：" class="headerlink" title="三、tar.gz源代码包安装方式："></a>三、tar.gz源代码包安装方式：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 找到相应的软件包，比如soft.tar.gz，下载到本机某个目录；</span><br><span class="line">2. 打开一个终端，su -成root用户；</span><br><span class="line">3. cd soft.tar.gz所在的目录；</span><br><span class="line">4. tar -xzvf soft.tar.gz &#x2F;&#x2F;一般会生成一个soft目录</span><br><span class="line">5. cd soft</span><br><span class="line">6. .&#x2F;configure</span><br><span class="line">7. make</span><br><span class="line">8. make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、tar-bz2源代码包安装方式："><a href="#四、tar-bz2源代码包安装方式：" class="headerlink" title="四、tar.bz2源代码包安装方式："></a>四、tar.bz2源代码包安装方式：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、找到相应的软件包，比如soft.tar.bz2，下载到本机某个目录；</span><br><span class="line">2、打开一个终端，su -成root用户；</span><br><span class="line">3、cd soft.tar.bz2所在的目录；</span><br><span class="line">4、tar -xjvf soft.tar.bz2 &#x2F;&#x2F;一般会生成一个soft目录</span><br><span class="line">5、cd soft</span><br><span class="line">6、.&#x2F;configure</span><br><span class="line">7、make</span><br><span class="line">8、make install</span><br></pre></td></tr></table></figure>
+<h2 id="五、apt方式安装："><a href="#五、apt方式安装：" class="headerlink" title="五、apt方式安装："></a>五、apt方式安装：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、打开一个终端，su -成root用户；</span><br><span class="line">2、apt-cache search soft 注：soft是你要找的软件的名称或相关信息</span><br><span class="line">3、如果2中找到了软件soft.version，则用apt-get install soft.version命令安装软件 注：只要你可以上网，只需要用apt-cache search查找软件，用apt-get install软件</span><br><span class="line">六、bin文件安装：</span><br><span class="line">如果你下载到的软件名是soft.bin，一般情况下是个可执行文件，安装方法如下：</span><br><span class="line">1、打开一个终端，su -成root用户；</span><br><span class="line">2、chmod +x soft.bin</span><br><span class="line">3、.&#x2F;soft.bin &#x2F;&#x2F;运行这个命令就可以安装软件了</span><br></pre></td></tr></table></figure>
+
+<p>关于本文档<br>*filename:Linux下软件安装方法总结<br>*purpose:总结了Linux下各种软件安装方法<br>*wrote by: zhoulifa(<a href="mailto:zhoulifa@163.com">zhoulifa@163.com</a>) 周立发(<a href="http://zhoulifa.bokee.com" target="_blank" rel="noopener">http://zhoulifa.bokee.com</a>)<br>Linux爱好者 Linux知识传播者 SOHO族 开发者 最擅长C语言编程<br>*date time:2006-07-26 18:10:00<br>*Note: 任何人可以任意复制代码并运用这些文档，当然包括你的商业用途</p>
+<ul>
+<li>但请遵循GPL。</li>
+<li>Hope:希望越来越多的人贡献自己的力量，为科学技术发展出力</li>
+</ul>
+<h2 id="七、不需要安装的软件："><a href="#七、不需要安装的软件：" class="headerlink" title="七、不需要安装的软件："></a>七、不需要安装的软件：</h2><p>有了些软件，比如lumaqq，是不需要安装的，自带jre解压缩后可直接运行。假设下载的是lumaqq.tar.gz，使用方法如下：<br>1、打开一个终端，su -成root用户；<br>2、tar -xzvf lumaqq.tar.gz //这一步会生成一个叫LumaQQ的目录<br>3、cd LumaQQ<br>4、chmod +x lumaqq //设置lumaqq这个程序文件为可运行<br>5、此时就可以运行lumaqq了，用命令./lumaqq即可，但每次运行要输入全路径或切换到刚才生成的LumaQQ目录里<br>6、为了保证不设置路径就可以用，你可以在/bin目录下建立一个lumaqq的链接，用命令ln -s lumaqq /bin/ 即可，以后任何时候打开一个终端输入lumaqq就可以启动QQ聊天软件了<br>7、 如果你要想lumaqq有个菜单项，使用菜单编辑工具，比如Alacarte Menu Editor，找到上面生成的LumaQQ目录里的lumaqq设置一个菜单项就可以了，当然你也可以直接到 /usr/share/applications目录，按照里面其它*.desktop文件的格式生成一个自己的desktop文件即可。<br>1、已经编译打包好的xxx.rpm</p>
+<p>如果你的Linux系统带有安装程序，最好用系统自带的安装程序来安装。比如SuSE的 YaST2就带有安装程序，在KDE环境下只要是rpm，就可以在Konqueror里面点击再“Install with YaST2”，这样做的好处是YaST2会给你提示包的详细信息，自动检查信赖关系，而且以后可以方便地在YaST2里面卸载软件包。SuSE的Red- Carpet也提供了安装功能，也不错。</p>
+<p>另一种方式是使用rpm命令，需要打开终端，切换到xxx.rpm所在目录，执行：<br>rpm -ivh xxx.rpm</p>
+<p>如果需要还可以带上其他参数。不过在SuSE里面，用rpm命令安装的软件包，在YaST2的控制面板里面显示为“锁定状态”，我不知道这是什么意思，不过软件包是可用的，也可以在YaST2里面卸载。</p>
+<p>2、打包好的源码包xxx.src.rpm</p>
+<p>要用命令来重新生成一下：<br>rpm -rebuild xxx.src.rpm</p>
+<p>3、安装程序xxx.bin</p>
+<p>商业软件有不少以这种方式打包发行，其实就相当于Windows下的Setup.exe，不过你得先把xxx.bin改为可执行状态，可以用右键–&gt;属性来修改，也可以用如下命令：<br>chmod +x xxx.bin</p>
+<p>这样，就可以通过双击或在终端下执行xxx.bin了。</p>
+<p>4、压缩方式的软件包xxx.tar.gz、xxx.bz2、xxx.z等等</p>
+<p>对 于刚刚接触Linux的人来说，一定会给Linux下一大堆各式各样的文件名给搞晕。别个不说，单单就压缩文件为例，我们知道在Windows下最常见的 压缩文件就只有两种，一是,zip，另一个是.rar。可是Linux就不同了，它有.gz、.tar.gz、tgz、bz2、.Z、.tar等众多的压 缩文件名，此外windows下的.zip和.rar也可以在Linux下使用，不过在Linux使用.zip和.rar的人就太少了。本文就来对这些常 见的压缩文件进行一番小结，希望你下次遇到这些文件时不至于被搞晕.</p>
+<p>在具体总结各类压缩文件之前呢，首先要弄清两个概念：打包和压 缩。打包是指将一大堆文件或目录什么的变成一个总的文件，压缩则是将一个大的文件通过一些压缩算法变成一个小文件。为什么要区分这两个概念呢？其实这源于 Linux中的很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你就得先借助另它的工具将这一大堆文件先打成一个包，然后再就原来 的压缩程序进行压缩。</p>
+<p>Linux下最常用的打包程序就是tar了，使用tar程序打出来的包我们常称为tar包，tar包文件的命令通常都是以.tar结尾的。生成tar包后，就可以用其它的程序来进行压缩了，所以首先就来讲讲tar命令的基本用法：</p>
+<p>tar命令的选项有很多(用man tar可以查看到)，但常用的就那么几个选项，下面来举例说明一下：</p>
+<h1 id="tar-cf-all-tar-jpg"><a href="#tar-cf-all-tar-jpg" class="headerlink" title="tar -cf all.tar *.jpg"></a>tar -cf all.tar *.jpg</h1><p>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p>
+<h1 id="tar-rf-all-tar-gif"><a href="#tar-rf-all-tar-gif" class="headerlink" title="tar -rf all.tar *.gif"></a>tar -rf all.tar *.gif</h1><p>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p>
+<h1 id="tar-uf-all-tar-logo-gif"><a href="#tar-uf-all-tar-logo-gif" class="headerlink" title="tar -uf all.tar logo.gif"></a>tar -uf all.tar logo.gif</h1><p>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p>
+<h1 id="tar-tf-all-tar"><a href="#tar-tf-all-tar" class="headerlink" title="tar -tf all.tar"></a>tar -tf all.tar</h1><p>这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p>
+<h1 id="tar-xf-all-tar"><a href="#tar-xf-all-tar" class="headerlink" title="tar -xf all.tar"></a>tar -xf all.tar</h1><p>这条命令是解出all.tar包中所有文件，-x是解开的意思</p>
+<p>以上就是tar的最基本的用法。为了方便用户在打包解包的同时可以压缩或解压文件，tar提供了一种特殊的功能。这就是tar可以在打包或解包的同时调用其它的压缩程序，比如调用gzip、bzip2等。</p>
+<p>1) tar调用gzip</p>
+<p>gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下：</p>
+<h1 id="tar-czf-all-tar-gz-jpg"><a href="#tar-czf-all-tar-gz-jpg" class="headerlink" title="tar -czf all.tar.gz *.jpg"></a>tar -czf all.tar.gz *.jpg</h1><p>这条命令是将所有.jpg的文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz</p>
+<h1 id="tar-xzf-all-tar-gz"><a href="#tar-xzf-all-tar-gz" class="headerlink" title="tar -xzf all.tar.gz"></a>tar -xzf all.tar.gz</h1><p>这条命令是将上面产生的包解开。</p>
+<p>2) tar调用bzip2</p>
+<p>bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用gzip。下面来举例说明一下：</p>
+<h1 id="tar-cjf-all-tar-bz2-jpg"><a href="#tar-cjf-all-tar-bz2-jpg" class="headerlink" title="tar -cjf all.tar.bz2 *.jpg"></a>tar -cjf all.tar.bz2 *.jpg</h1><p>这条命令是将所有.jpg的文件打成一个tar包，并且将其用bzip2压缩，生成一个bzip2压缩过的包，包名为all.tar.bz2</p>
+<h1 id="tar-xjf-all-tar-bz2"><a href="#tar-xjf-all-tar-bz2" class="headerlink" title="tar -xjf all.tar.bz2"></a>tar -xjf all.tar.bz2</h1><p>这条命令是将上面产生的包解开。<br>3)tar调用compress</p>
+<p>compress也是一个压缩程序，但是好象使用compress的人不如gzip和bzip2的人多。.Z结尾的文件就是compress压缩的结 果。与 compress相对的解压程序是uncompress。tar中使用-Z这个参数来调用gzip。下面来举例说明一下：</p>
+<h1 id="tar-cZf-all-tar-Z-jpg"><a href="#tar-cZf-all-tar-Z-jpg" class="headerlink" title="tar -cZf all.tar.Z *.jpg"></a>tar -cZf all.tar.Z *.jpg</h1><p>这条命令是将所有.jpg的文件打成一个tar包，并且将其用compress压缩，生成一个uncompress压缩过的包，包名为all.tar.Z</p>
+<h1 id="tar-xZf-all-tar-Z"><a href="#tar-xZf-all-tar-Z" class="headerlink" title="tar -xZf all.tar.Z"></a>tar -xZf all.tar.Z</h1><p>这条命令是将上面产生的包解开</p>
+<p>有了上面的知识，你应该可以解开多种压缩文件了，下面对于tar系列的压缩文件作一个小结：</p>
+<p>1)对于.tar结尾的文件</p>
+<p>tar -xf all.tar</p>
+<p>2)对于.gz结尾的文件</p>
+<p>gzip -d all.gz<br>gunzip all.gz</p>
+<p>3)对于.tgz或.tar.gz结尾的文件</p>
+<p>tar -xzf all.tar.gz<br>tar -xzf all.tgz</p>
+<p>4)对于.bz2结尾的文件</p>
+<p>bzip2 -d all.bz2<br>bunzip2 all.bz2</p>
+<p>5)对于tar.bz2结尾的文件</p>
+<p>tar -xjf all.tar.bz2</p>
+<p>6)对于.Z结尾的文件</p>
+<p>uncompress all.Z</p>
+<p>7)对于.tar.Z结尾的文件</p>
+<p>tar -xZf all.tar.z</p>
+<p>另外对于Window下的常见压缩文件.zip和.rar，Linux也有相应的方法来解压它们：</p>
+<p>1)对于.zip</p>
+<p>linux下提供了zip和unzip程序，zip是压缩程序，unzip是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法：</p>
+<h1 id="zip-all-zip-jpg"><a href="#zip-all-zip-jpg" class="headerlink" title="zip all.zip *.jpg"></a>zip all.zip *.jpg</h1><p>这条命令是将所有.jpg的文件压缩成一个zip包</p>
+<h1 id="unzip-all-zip"><a href="#unzip-all-zip" class="headerlink" title="unzip all.zip"></a>unzip all.zip</h1><p>这条命令是将all.zip中的所有文件解压出来</p>
+<p>2)对于.rar</p>
+<p>要在linux下处理.rar文件，需要安装RAR for Linux，可以从网上下载，但要记住，RAR for Linux<br>不是免费的；可从<a href="http://www.rarsoft.com/download.htm下载RAR" target="_blank" rel="noopener">http://www.rarsoft.com/download.htm下载RAR</a> for Linux 3.2.0，然后安装：</p>
+<h1 id="tar-xzpvf-rarlinux-3-2-0-tar-gz"><a href="#tar-xzpvf-rarlinux-3-2-0-tar-gz" class="headerlink" title="tar -xzpvf rarlinux-3.2.0.tar.gz"></a>tar -xzpvf rarlinux-3.2.0.tar.gz</h1><h1 id="cd-rar"><a href="#cd-rar" class="headerlink" title="cd rar"></a>cd rar</h1><h1 id="make"><a href="#make" class="headerlink" title="make"></a>make</h1><p>这样就安装好了，安装后就有了rar和unrar这两个程序，rar是压缩程序，unrar是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法：</p>
+<h1 id="rar-a-all-jpg"><a href="#rar-a-all-jpg" class="headerlink" title="rar a all *.jpg"></a>rar a all *.jpg</h1><p>这条命令是将所有.jpg的文件压缩成一个rar包，名为all.rar，该程序会将.rar 扩展名将自动附加到包名后。</p>
+<h1 id="unrar-e-all-rar"><a href="#unrar-e-all-rar" class="headerlink" title="unrar e all.rar"></a>unrar e all.rar</h1><p>这条命令是将all.rar中的所有文件解压出来</p>
+<p>到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。</p>
+<p>本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、 unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、.Z、. tar.Z、.zip、.rar这10种压缩文件进行操作。</p>
+<p>压缩：<br>压缩： tar调用bzip2<br>bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用gzip。下面来举例说明一下：</p>
+<h1 id="tar-cjf-all-tar-bz2-jpg-1"><a href="#tar-cjf-all-tar-bz2-jpg-1" class="headerlink" title="tar -cjf all.tar.bz2 *.jpg"></a>tar -cjf all.tar.bz2 *.jpg</h1><p>解压缩： 对于.bz2结尾的文件</p>
+<p>bzip2 -d all.bz2<br>bunzip2 all.bz2</p>
+<p>其实既然可以tar -cjf all.tar.bz2 *.jpg,当然也可以tar -xjf all.tar.bz2的。<br>我试过了，没有问题，完全可以用tar命令实现，而不是bunzip2</p>
+<p>这种软件包又分两种形式：</p>
+<p>(1)已经编译好的软件包，使用安装脚本来安装：</p>
+<p>你最好先看一下软件包的说明文件，如readme、install、xxx.htm等。</p>
+<p>再找一下有没有xxx.sh、xxx.pl这种文件，一般是install.sh或install.pl，也可能不是这种名字，具体情况具体分析。</p>
+<p>打开终端，切换到软件包所在目录，运行如下命令：<br>./xxx.sh 或 ./xxx.pl 即可。</p>
+<p>(2)需要自行编译的源码压缩包，先解压缩：</p>
+<p>同样地，你最好先看一下软件包的说明文件，如readme、install、xxx.htm等。</p>
+<p>一般安装形式为：</p>
+<p>打开终端，切换到软件包所在目录，运行如下命令：</p>
+<p>./configure （做一下自动配置，一般会花不少时间。配置程序会检查你的系统信息，作出相应配置，肯定会检查你的编译器(如gcc)和库文件(如glib)等信息，所以你必须保证你的系统上有这些软件）</p>
+<p>make （开始编译，一般会花不少时间）</p>
+<p>make check （检查一下结果是否正确。这步不是必须，但建议做一下）</p>
+<p>make install （运行安装程序）</p>
+<p>这样，就完成了软件安装过程。</p>
+<p>如果你想删除源代码文件的话，可以在原目录运行命令：<br>make clear</p>
+<p>如果你想卸载该软件包的话，可以在原目录下运行命令：<br>make uninstall</p>
+<p>5、使用java编译的安装程序xxx.jar</p>
+<p>首先，你的系统上必须有java虚拟机软件，如果没有，到Sun公司的网站上下载一个装上（<a href="http://www.java.com或者http://java.sun.com）。" target="_blank" rel="noopener">http://www.java.com或者http://java.sun.com）。</a></p>
+<p>要安装xxx.jar形式的软件包，先打开终端，切换到xxx.jar所在目录，执行：<br>java -jar xxx.jar</p>
+<p>这样就启动了安装程序。</p>
+<p>make check （检查一下结果是否正确。这步不是必须，但建议做一下）<br>make clear</p>
+<p>如果你想卸载该软件包的话，可以在原目录下运行命令：<br>make uninstall</p>
+<p>6.使用portage，敲指令：</p>
+<h1 id="emerge-packagename-从源码编译或安装某些已编好了的包"><a href="#emerge-packagename-从源码编译或安装某些已编好了的包" class="headerlink" title="emerge packagename (从源码编译或安装某些已编好了的包)"></a>emerge packagename (从源码编译或安装某些已编好了的包)</h1><h1 id="emerge-k-packagename-自己编译好摆在硬盘上的包"><a href="#emerge-k-packagename-自己编译好摆在硬盘上的包" class="headerlink" title="emerge -k packagename (自己编译好摆在硬盘上的包)"></a>emerge -k packagename (自己编译好摆在硬盘上的包)</h1><h2 id="apt卸载"><a href="#apt卸载" class="headerlink" title="apt卸载"></a>apt卸载</h2><p>sudo apt-get remove <package> #—–(package 删除包)。<br>sudo apt-get purge <package> # —-(package 删除包，包括删除配置文件等) 　　<br>sudo apt-get -y autoremove 卸载不需要的依赖关系。<br>sudo apt-get -y autoclean 清理安装软件时留下的缓存程序软件包/只清理过时的包 　　。<br>sudo apt-get -y clean 清理下载文件的存档。</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Databases/MySQL%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">MySQL日期时间函数大全</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/14/etc/%E7%AE%97%E6%B3%95%E9%A2%981/">
+        <span class="next-text nav-default">算法题1</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

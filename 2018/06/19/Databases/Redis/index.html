@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Redis"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2018/06/19/Databases/Redis/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>Redis - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Redis
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-06-19
+        </span></div>
+    </header>
+
+    <div class="post-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务：</span></span><br><span class="line">redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">pid:sudo cat /usr/<span class="built_in">local</span>/redis/redis.pid</span><br></pre></td></tr></table></figure>
+
+<p><strong>String类型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># 写数据-覆盖更新</span><br><span class="line">set key value</span><br><span class="line"></span><br><span class="line"># 设置key对应的value为string类型的value，如果key已经存在，返回0，否则返回1，nx是not exist的意思</span><br><span class="line"># 不覆盖更新</span><br><span class="line">setnx key value</span><br><span class="line"></span><br><span class="line"># 设置值有效期-返回1</span><br><span class="line">setex key timeout value</span><br><span class="line"></span><br><span class="line"># 设置key下value第N位替换value1,为返回字符串长度</span><br><span class="line">setrange key n value1</span><br><span class="line"></span><br><span class="line"># 批量设置,成功返回1，失败返回0-覆盖更新</span><br><span class="line">mset key1 value1 key2 value2</span><br><span class="line"></span><br><span class="line"># 批量设置,成功返回1，失败返回0,不覆盖更新</span><br><span class="line">msetnx key1 value1 key2 value2</span><br><span class="line"></span><br><span class="line"># 获取旧value设置新vaule</span><br><span class="line">getset key value</span><br><span class="line"></span><br><span class="line"># 获取key值</span><br><span class="line">get key</span><br><span class="line"></span><br><span class="line"># 从m到n个字符返回</span><br><span class="line">getrange key m n</span><br><span class="line"></span><br><span class="line"># 批量获取值</span><br><span class="line">mget key1 key2 key2</span><br><span class="line"></span><br><span class="line"># 对key的值自增，返回value</span><br><span class="line">incr key</span><br><span class="line"></span><br><span class="line"># 自增n次(-n自减)，key不存在则认为为0</span><br><span class="line">incrby key n</span><br><span class="line"></span><br><span class="line"># 自减一次</span><br><span class="line">decr key</span><br><span class="line"></span><br><span class="line"># 自减法n次(-n自增)，key不存在则认为为0</span><br><span class="line">decrby key n</span><br><span class="line"></span><br><span class="line"># 给key追加value,返回新value长度</span><br><span class="line">append key value</span><br><span class="line"></span><br><span class="line"># 获取key-value的长度</span><br><span class="line">strlen key</span><br></pre></td></tr></table></figure>
+
+<p><strong>hashex类型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># 设置hash field为指定值，如不存在则创建-覆盖更新</span><br><span class="line">hset table name value</span><br><span class="line"></span><br><span class="line"># 设置hash field 为指定值，如果key不存在，则先创建，如存在返回0-不覆盖更新</span><br><span class="line">hsetnx table key value</span><br><span class="line"></span><br><span class="line"># 批量设置</span><br><span class="line">hmset table key1 value1 keyn valuen</span><br><span class="line"></span><br><span class="line"># 获取</span><br><span class="line">hget</span><br><span class="line"></span><br><span class="line"># 批量获取</span><br><span class="line">hmget</span><br><span class="line"></span><br><span class="line">hincrby</span><br><span class="line"></span><br><span class="line"># 获取字段数量</span><br><span class="line">hlen </span><br><span class="line"></span><br><span class="line"># 删除制定hash的field</span><br><span class="line">hdel</span><br><span class="line"></span><br><span class="line"># 返回所有字段</span><br><span class="line">hkeys</span><br><span class="line"></span><br><span class="line"># 返回所有value</span><br><span class="line">hvalue</span><br><span class="line"></span><br><span class="line"># 获取所有key-value</span><br><span class="line">hgetall</span><br></pre></td></tr></table></figure>
+<p><strong>list类型（链表）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># 从头部压入一个元素</span><br><span class="line">lpush key value</span><br><span class="line"></span><br><span class="line"># 从头部取出N个元素</span><br><span class="line">lrange key 0 -N</span><br><span class="line"></span><br><span class="line"># 从尾部压入一个元素</span><br><span class="line">rpush key value</span><br><span class="line"></span><br><span class="line"># 在value1之前压入value2</span><br><span class="line">linsert key before value1 value2</span><br><span class="line"> </span><br><span class="line"># 覆盖指定key的值为value</span><br><span class="line">lset key value</span><br><span class="line"></span><br><span class="line"># 从key中删除N个值为value的值，n&lt;o从尾删除，n&#x3D;0全部删除</span><br><span class="line">lrem key n value</span><br><span class="line"></span><br><span class="line"># 保留指定key的范围内的值</span><br><span class="line">ltrim key 1 -1</span><br><span class="line"></span><br><span class="line"># 从list头部删除元素，并返回删除元素</span><br><span class="line">lpop key</span><br><span class="line"></span><br><span class="line"># 从list尾部删除元素，并返回删除元素</span><br><span class="line">rpop key</span><br><span class="line"></span><br><span class="line"># 从list1尾部移除元素并添加到list2头部</span><br><span class="line">ropolpush list1 list2 key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 从尾部取出N个元素</span><br><span class="line">rrange key 0 -N</span><br><span class="line"></span><br><span class="line"># 返回名称为key的list中index位置的元素</span><br><span class="line">lindex key [int]index</span><br><span class="line"></span><br><span class="line"># 返回链表元素个数</span><br><span class="line">llen list</span><br></pre></td></tr></table></figure>
+<p><strong>set无序集合</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># 向set集合添加value</span><br><span class="line">sadd set value</span><br><span class="line"></span><br><span class="line"># 查看set下所有元素</span><br><span class="line">smember set</span><br><span class="line"></span><br><span class="line"># 删除集合元素</span><br><span class="line">srem set value</span><br><span class="line"></span><br><span class="line"># 随机（set为无序集合）返回并删除set下的value</span><br><span class="line">spop set</span><br><span class="line"></span><br><span class="line"># 返回差集</span><br><span class="line">sdiff set1(标准) set2</span><br><span class="line"></span><br><span class="line"># 将ste2和set3的差集存储到set1</span><br><span class="line">sdiffstore set1 set2 set3</span><br><span class="line"></span><br><span class="line"># 返回交集</span><br><span class="line">sinter set1 set2</span><br><span class="line"></span><br><span class="line"># 将ste2和set3的交集存储到set1</span><br><span class="line">sinterstore set1 set2 set3</span><br><span class="line"></span><br><span class="line"># 并集</span><br><span class="line">sunion set1 set2</span><br><span class="line"></span><br><span class="line"># 将ste2和set3的并集存储到set1</span><br><span class="line">sunionstore set1 set2 set3</span><br><span class="line"></span><br><span class="line"># 移动元素（不是复制）</span><br><span class="line">smove set1 set2 value</span><br><span class="line"></span><br><span class="line"># 查看元素集合个数</span><br><span class="line">scard set </span><br><span class="line"></span><br><span class="line"># 判断元素是否为set元素</span><br><span class="line">sismember set value</span><br><span class="line"></span><br><span class="line"># 随机返回元素</span><br><span class="line">srandmember set</span><br></pre></td></tr></table></figure>
+<p><strong>zset(集合)</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 添加元素-覆盖更新</span><br><span class="line">zadd set order value</span><br><span class="line"></span><br><span class="line"># 读取元素</span><br><span class="line">zrange set 0-n withscores(带顺序号)</span><br><span class="line"></span><br><span class="line"># 删除</span><br><span class="line">zrem set value</span><br><span class="line"></span><br><span class="line"># 增加value为N个顺序号</span><br><span class="line">zincrby set N value</span><br><span class="line"></span><br><span class="line"># 返回索引值-升序</span><br><span class="line">zrank set value</span><br><span class="line"></span><br><span class="line"># 返回索引值-降序</span><br><span class="line">zrevrank set value</span><br><span class="line"></span><br><span class="line"># 返回2到3的值</span><br><span class="line">zrangebystore set 2 3 withscores</span><br><span class="line"></span><br><span class="line"># 返回范围内元素数量</span><br><span class="line">zcount set n n </span><br><span class="line"></span><br><span class="line"># 返回set所有元素个数</span><br><span class="line">zcard set</span><br><span class="line"></span><br><span class="line"># 删除索引区间value</span><br><span class="line">zremrangebyrank set n n</span><br><span class="line"></span><br><span class="line"># 删除顺序区间value</span><br><span class="line">zremrangebyscore set n n</span><br></pre></td></tr></table></figure>
+<p><strong>Redis常用命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 键值相关命令</span><br><span class="line">keys *</span><br><span class="line">exists key</span><br><span class="line">del key</span><br><span class="line">expire key # 设置生命周期</span><br><span class="line">persist key # 销毁生命周期</span><br><span class="line">ttl key # 键生命周期</span><br><span class="line">randomkey # 随机返回key</span><br><span class="line">rename key newkey</span><br><span class="line">move key db # 移动数据到指定数据库</span><br><span class="line">type key </span><br><span class="line"></span><br><span class="line"># server相关命令</span><br><span class="line">ping 测试相应</span><br><span class="line">echo </span><br><span class="line">quit</span><br><span class="line">select # 选择数据库 0~15 共16个</span><br><span class="line">dbsize # 返回key数量</span><br><span class="line">info # 信息&amp;统计</span><br><span class="line">config get # 实时存储收到的的请求</span><br><span class="line">flushdb # 清空当前数据库数据</span><br><span class="line">flushall #删除所有数据库数据</span><br><span class="line"></span><br><span class="line">HGET KEY</span><br></pre></td></tr></table></figure>
+
+<p><strong>事务</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis事务即使有错误也不会回滚，正确的会正常执行</span><br><span class="line"></span><br><span class="line">#建立将语句先放到队列里</span><br><span class="line">multi #事务开始</span><br><span class="line">语句巴拉巴拉巴拉</span><br><span class="line">discard # 取消事务</span><br><span class="line">exec #事务commit</span><br><span class="line"></span><br><span class="line"># 乐观锁</span><br><span class="line"># exec discard unwatch 都会清除监视</span><br><span class="line">watch # 监控是否有修改</span><br></pre></td></tr></table></figure>
+<p><strong>持久化</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.快照。备份数据</span><br><span class="line"></span><br><span class="line"># 300秒内10个key被修改则备份</span><br><span class="line">save 300 10 </span><br><span class="line"></span><br><span class="line">2.aof,备份操作</span><br></pre></td></tr></table></figure>
+<p><img src="media/14972331198142/15007395437999.jpg" alt=""></p>
+<p><strong>发布订阅</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#发布消息</span><br><span class="line">publish chanel msg</span><br><span class="line">#订阅频道</span><br><span class="line">subscribe chanel1 chanel2</span><br><span class="line">psubscribe</span><br></pre></td></tr></table></figure>
+<p><strong>虚拟内存</strong></p>
+<p><img src="media/14972331198142/15007400719658.jpg" alt=""></p>
+<p>notify-keyspace-events<br>stop-writes-on-bgsave-error</p>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Linux/%20%E4%BF%AE%E6%94%B9Ubuntu%E7%9A%84aptget%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C%E6%BA%90%E7%9A%84%E6%96%B9%E6%B3%95/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">修改Ubuntu的aptget源为阿里源的方法</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2018/06/19/Databases/MySQL%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0%E5%A4%A7%E5%85%A8/">
+        <span class="next-text nav-default">MySQL日期时间函数大全</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>
