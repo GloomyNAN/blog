@@ -75,7 +75,31 @@
         </span></div>
     </header>
 
-    <div class="post-content"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务：</span></span><br><span class="line">redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">pid:sudo cat /usr/<span class="built_in">local</span>/redis/redis.pid</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><p>Redis是用C语言开发的一个开源的高性能键值对（key-value）数据库，官方提供测试数据，50个并发执行100000个请求,读的速度是110000次/s,写的速度是81000次/s ，且Redis通过提供多种键值数据类型来适应不同场景下的存储需求，目前为止Redis支持的键值数据类型如下：</p>
+<ol>
+<li>字符串类型 string</li>
+<li>哈希类型 hash</li>
+<li>列表类型 list</li>
+<li>集合类型 set</li>
+<li>有序集合类型 sortedset</li>
+</ol>
+<h2 id="redis的应用场景"><a href="#redis的应用场景" class="headerlink" title="redis的应用场景"></a>redis的应用场景</h2><ul>
+<li>缓存（数据查询、短连接、新闻内容、商品内容等等）</li>
+<li>聊天室的在线好友列表</li>
+<li>任务队列。（秒杀、抢购、12306等等）</li>
+<li>应用排行榜</li>
+<li>网站访问统计</li>
+<li>数据过期处理（可以精确到毫秒</li>
+<li>分布式集群架构中的session分离</li>
+</ul>
+<h2 id="redis的数据结构："><a href="#redis的数据结构：" class="headerlink" title="redis的数据结构："></a>redis的数据结构：</h2><ol>
+<li>字符串类型 string</li>
+<li>哈希类型 hash ： map格式  </li>
+<li>列表类型 list ： linkedlist格式。支持重复元素</li>
+<li>集合类型 set  ： 不允许重复元素</li>
+<li>有序集合类型 sortedset：不允许重复元素，且元素有顺序</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务：</span></span><br><span class="line">redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">pid:sudo cat /usr/<span class="built_in">local</span>/redis/redis.pid</span><br></pre></td></tr></table></figure>
 
 <p><strong>String类型</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"># 写数据-覆盖更新</span><br><span class="line">set key value</span><br><span class="line"></span><br><span class="line"># 设置key对应的value为string类型的value，如果key已经存在，返回0，否则返回1，nx是not exist的意思</span><br><span class="line"># 不覆盖更新</span><br><span class="line">setnx key value</span><br><span class="line"></span><br><span class="line"># 设置值有效期-返回1</span><br><span class="line">setex key timeout value</span><br><span class="line"></span><br><span class="line"># 设置key下value第N位替换value1,为返回字符串长度</span><br><span class="line">setrange key n value1</span><br><span class="line"></span><br><span class="line"># 批量设置,成功返回1，失败返回0-覆盖更新</span><br><span class="line">mset key1 value1 key2 value2</span><br><span class="line"></span><br><span class="line"># 批量设置,成功返回1，失败返回0,不覆盖更新</span><br><span class="line">msetnx key1 value1 key2 value2</span><br><span class="line"></span><br><span class="line"># 获取旧value设置新vaule</span><br><span class="line">getset key value</span><br><span class="line"></span><br><span class="line"># 获取key值</span><br><span class="line">get key</span><br><span class="line"></span><br><span class="line"># 从m到n个字符返回</span><br><span class="line">getrange key m n</span><br><span class="line"></span><br><span class="line"># 批量获取值</span><br><span class="line">mget key1 key2 key2</span><br><span class="line"></span><br><span class="line"># 对key的值自增，返回value</span><br><span class="line">incr key</span><br><span class="line"></span><br><span class="line"># 自增n次(-n自减)，key不存在则认为为0</span><br><span class="line">incrby key n</span><br><span class="line"></span><br><span class="line"># 自减一次</span><br><span class="line">decr key</span><br><span class="line"></span><br><span class="line"># 自减法n次(-n自增)，key不存在则认为为0</span><br><span class="line">decrby key n</span><br><span class="line"></span><br><span class="line"># 给key追加value,返回新value长度</span><br><span class="line">append key value</span><br><span class="line"></span><br><span class="line"># 获取key-value的长度</span><br><span class="line">strlen key</span><br></pre></td></tr></table></figure>
@@ -106,13 +130,13 @@
       
       <footer class="post-footer">
         
-        <nav class="post-nav"><a class="prev" href="/2018/06/19/Databases/Mongodb/">
+        <nav class="post-nav"><a class="prev" href="/2018/06/19/Linux/pure-ftpd/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Mongodb</span>
+        <span class="prev-text nav-default">pure-ftpd</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2018/06/19/Linux/%20%E4%BF%AE%E6%94%B9Ubuntu%E7%9A%84aptget%E6%BA%90%E4%B8%BA%E9%98%BF%E9%87%8C%E6%BA%90%E7%9A%84%E6%96%B9%E6%B3%95/">
-        <span class="next-text nav-default">修改Ubuntu的aptget源为阿里源的方法</span>
+    <a class="next" href="/2018/06/19/Git/Git%20hook/">
+        <span class="next-text nav-default">Git hook</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
