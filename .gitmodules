@@ -1,15 +1,15 @@
 [submodule "source/_posts"]
 	path = source/_posts
-	url = git@github.com:GloomyNAN/doc.git
+	url = https://github.com/GloomyNAN/doc.git
 [submodule "themes/yikes"]
 	path = themes/yikes
-	url = git@github.com:GloomyNAN/yikes.git
+	url = https://github.com/GloomyNAN/yikes.git
 [submodule "themes/landscape"]
 	path = themes/landscape
-	url = git@github.com:hexojs/hexo-theme-landscape.git
+	url = https://github.com/hexojs/hexo-theme-landscape.git
 [submodule "themes/even"]
 	path = themes/even
-	url = git@github.com:ahonn/hexo-theme-even.git
+	url = https://github.com/ahonn/hexo-theme-even.git
 [submodule "themes/next"]
 	path = themes/next
-	url = git@github.com:iissnan/hexo-theme-next.git
+	url = https://github.com/iissnan/hexo-theme-next.git
