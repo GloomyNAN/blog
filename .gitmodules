@@ -4,3 +4,9 @@
 [submodule "themes/yikes"]
 	path = themes/yikes
 	url = https://github.com/GloomyNAN/yikes.git
+[submodule "themes/landscape"]
+	path = themes/landscape
+	url = https://github.com/hexojs/hexo-theme-landscape.git
+[submodule "themes/even"]
+	path = themes/even
+	url = https://github.com/ahonn/hexo-theme-even.git
