@@ -1,6 +1,6 @@
 [submodule "source/_posts"]
 	path = source/_posts
-	url = git@github.com:GloomyNAN/doc.git
+	url = https://github.com/GloomyNAN/doc.git
 [submodule "themes/yikes"]
 	path = themes/yikes
-	url = git@github.com:GloomyNAN/yikes.git
+	url = https://github.com/GloomyNAN/yikes.git
