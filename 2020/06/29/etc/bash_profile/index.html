@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="etc/bash_profile"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2020/06/29/etc/bash_profile/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>etc/bash_profile - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">etc/bash_profile
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-06-29
+        </span></div>
+    </header>
+
+    <div class="post-content"><h1 id="bash-profile"><a href="#bash-profile" class="headerlink" title="bash_profile"></a>bash_profile</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.profile</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> git_branch &#123;</span><br><span class="line">  branch=<span class="string">"`git branch 2&gt;/dev/null | grep "</span>^\*<span class="string">" | sed -e "</span>s/^\*\ //<span class="string">"`"</span></span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;branch&#125;</span>"</span> != <span class="string">""</span> ];<span class="keyword">then</span></span><br><span class="line">      <span class="keyword">if</span> [ <span class="string">"<span class="variable">$&#123;branch&#125;</span>"</span> = <span class="string">"(no branch)"</span> ];<span class="keyword">then</span></span><br><span class="line">          branch=<span class="string">"(`git rev-parse --short HEAD`...)"</span></span><br><span class="line">      <span class="keyword">fi</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">" (<span class="variable">$branch</span>)"</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">export</span> PS1=<span class="string">'\u@\h \[\033[01;36m\]\W\[\033[01;32m\]$(git_branch)\[\033[00m\] \$ '</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Homestead</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">homestead</span></span>() &#123;</span><br><span class="line">    ( <span class="built_in">cd</span> ~/WorkArea/VMS/Homestead &amp;&amp; vagrant $* )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">killhomestead</span></span>() &#123;</span><br><span class="line">     ps -ef|grep VirtualBox|awk <span class="string">'&#123;print  $2&#125;'</span>|xargs <span class="built_in">kill</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">delbranch</span></span>()&#123;</span><br><span class="line">        ( git push origin --delete <span class="variable">$1</span> &amp;&amp; git branch -d  <span class="variable">$1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show Or Hide Hidden Files</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">show</span></span>() &#123;</span><br><span class="line">	defaults write com.apple.finder AppleShowAllFiles TRUE</span><br><span class="line">	killall Finder</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">hide</span></span>() &#123;</span><br><span class="line">	 defaults write com.apple.finder AppleShowAllFiles FALSE</span><br><span class="line">    	 killall Finder</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#React-Native</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rn</span></span>() &#123;</span><br><span class="line">    ( react-native $* )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#if [ -f ~/.bashrc ]; then</span></span><br><span class="line"><span class="comment">#   source ~/.bashrc</span></span><br><span class="line"><span class="comment">#fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add environment variable for laravel installer</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:~/.composer/vendor/bin/</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ..=<span class="string">"cd .."</span></span><br><span class="line"><span class="built_in">alias</span> ...=<span class="string">"cd ../.."</span></span><br><span class="line"><span class="built_in">alias</span> h=<span class="string">'cd ~'</span></span><br><span class="line"><span class="built_in">alias</span> c=<span class="string">'clear'</span></span><br><span class="line"><span class="built_in">alias</span> icloud=<span class="string">'cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'</span></span><br><span class="line"><span class="comment"># Work Places</span></span><br><span class="line"><span class="built_in">alias</span> WWW=<span class="string">'cd ~/WorkArea/WWW'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Git</span></span><br><span class="line"><span class="built_in">alias</span> pull=<span class="string">'git pull origin'</span></span><br><span class="line"><span class="built_in">alias</span> merge=<span class="string">'git merge'</span></span><br><span class="line"><span class="built_in">alias</span> fetch=<span class="string">'git fetch'</span></span><br><span class="line"><span class="built_in">alias</span> rebase=<span class="string">'git rebase'</span></span><br><span class="line"><span class="built_in">alias</span> push=<span class="string">'git push origin'</span></span><br><span class="line"><span class="built_in">alias</span> add=<span class="string">'git add -A'</span></span><br><span class="line"><span class="built_in">alias</span> commit=<span class="string">'git commit -m'</span></span><br><span class="line"><span class="built_in">alias</span> checkout=<span class="string">'git checkout'</span></span><br><span class="line"><span class="built_in">alias</span> status=<span class="string">'git status'</span></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -la'</span></span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2020/06/29/etc/brew%20software%20record/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">brew software record</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/06/29/etc/Vagrant/">
+        <span class="next-text nav-default">Vagrant</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>

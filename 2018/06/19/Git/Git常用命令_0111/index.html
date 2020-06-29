@@ -75,8 +75,7 @@
         </span></div>
     </header>
 
-    <div class="post-content"><p>###git设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure>
+    <div class="post-content"><h3 id="git设置"><a href="#git设置" class="headerlink" title="git设置"></a>git设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure>
 <p>设置文件大小写敏感<br>ssh-keygen -t rsa -C “you email”    创建SSH Key用户主目录.ssh目录，里面id_rsa是私钥和id_rsa.pub是公钥<br>登陆GitHub，打开“settings”，“SSH Keys”页面点“Add SSH Key”，填上任意Title，在Key框里粘贴id_rsa.pub文件的内容</p>
 <p>修改SSH-keygen密码</p>
 <pre><code>ssh-keygen -p</code></pre><p>Git 全局设置:</p>
@@ -166,6 +165,11 @@ git config --global user.email &quot;email@email.com&quot;    设置邮箱</code
 <p><code>$ git reset &lt;commit&gt;</code></p>
 <p>…and preserve uncommitted local changes</p>
 <p><code>$ git reset --keep &lt;commit&gt;</code></p>
+<p>从原地址克隆一份裸版本库，比如原本托管于 GitHub</p>
+<p>1<br>git clone –bare git://github.com/username/project.git</p>
+<p>1) 然后到新的 Git 服务器上创建一个新项目，比如 Gitcafe。</p>
+<p>2) 以镜像推送的方式上传代码到 GitCafe 服务器上。</p>
+<p>1<br>2<br>cd project.git<br>git push –mirror <a href="mailto:git@gitcafe.com">git@gitcafe.com</a>/username/newproject.git</p>
 
       </div>
       
@@ -179,8 +183,8 @@ git config --global user.email &quot;email@email.com&quot;    设置邮箱</code
         <span class="prev-text nav-default">MySQL日期时间函数大全</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
-    <a class="next" href="/2018/06/19/PHP%20/Laravel%E7%AC%94%E8%AE%B0/">
-        <span class="next-text nav-default">Laravel笔记</span>
+    <a class="next" href="/2018/06/19/etc/Git%20hook/">
+        <span class="next-text nav-default">Git hook</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
