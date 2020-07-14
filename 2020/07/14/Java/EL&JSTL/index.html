@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="JSP"/><link rel="alternate" href="/atom.xml" title="Yikes">
+<link rel="canonical" href="http://blog.gloomynan.com/2020/07/14/Java/EL&JSTL/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>JSP - Yikes</title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Yikes</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Yikes</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">JSP
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-07-14
+        </span></div>
+    </header>
+
+    <div class="post-content"><h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP:"></a>JSP:</h2><h3 id="JSP的脚本：JSP定义Java代码的方式"><a href="#JSP的脚本：JSP定义Java代码的方式" class="headerlink" title="JSP的脚本：JSP定义Java代码的方式"></a>JSP的脚本：JSP定义Java代码的方式</h3><ol>
+<li>&lt;%  代码 %&gt;：定义的java代码，在service方法中。service方法中可以定义什么，该脚本中就可以定义什么。</li>
+<li>&lt;%! 代码 %&gt;：定义的java代码，在jsp转换后的java类的成员位置。</li>
+<li>&lt;%= 代码 %&gt;：定义的java代码，会输出到页面上。输出语句中可以定义什么，该脚本中就可以定义什么。</li>
+<li>JSP的内置对象：<ul>
+<li>在jsp页面中不需要获取和创建，可以直接使用的对象</li>
+<li>jsp一共有9个内置对象。</li>
+</ul>
+</li>
+</ol>
+<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><ul>
+<li>request</li>
+<li>response</li>
+<li>out：字符输出流对象。可以将数据输出到页面上。和response.getWriter()类似</li>
+<li>response.getWriter()和out.write()的区别：</li>
+<li>在tomcat服务器真正给客户端做出响应之前，会先找response缓冲区数据，再找out缓冲区数据。</li>
+<li>response.getWriter()数据输出永远在out.write()之前</li>
+</ul>
+<h3 id="123"><a href="#123" class="headerlink" title="123"></a>123</h3><ol>
+<li>指令</li>
+</ol>
+<ul>
+<li>作用：用于配置JSP页面，导入资源文件</li>
+<li>格式：<br>&lt;%@ 指令名称 属性名1=属性值1 属性名2=属性值2 … %&gt;</li>
+<li>分类：</li>
+</ul>
+<ol>
+<li>page： 配置JSP页面的</li>
+</ol>
+<ul>
+<li>contentType：等同于response.setContentType()</li>
+</ul>
+<ol>
+<li>设置响应体的mime类型以及字符集</li>
+<li>设置当前jsp页面的编码（只能是高级的IDE才能生效，如果使用低级工具，则需要设置pageEncoding属性设置当前页面的字符集）</li>
+</ol>
+<ul>
+<li>import：导包</li>
+<li>errorPage：当前页面发生异常后，会自动跳转到指定的错误页面</li>
+<li>isErrorPage：标识当前也是是否是错误页面。</li>
+<li>true：是，可以使用内置对象exception</li>
+<li>false：否。默认值。不可以使用内置对象exception</li>
+</ul>
+<ol start="2">
+<li>include： 页面包含的。导入页面的资源文件</li>
+</ol>
+<ul>
+<li>&lt;%@include file=”top.jsp”%&gt;</li>
+</ul>
+<ol start="3">
+<li>taglib： 导入资源</li>
+</ol>
+<ul>
+<li>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;</li>
+<li>prefix：前缀，自定义的</li>
+</ul>
+<ol start="2">
+<li>注释:</li>
+<li>html注释：<!-- -->:只能注释html代码片段</li>
+<li>jsp注释：推荐使用<br>&lt;%– –%&gt;：可以注释所有</li>
+</ol>
+<ol start="3">
+<li>内置对象</li>
+</ol>
+<ul>
+<li>在jsp页面中不需要创建，直接使用的对象</li>
+<li>一共有9个：<br>变量名真实类型作用</li>
+<li>pageContextPageContext当前页面共享数据，还可以获取其他八个内置对象</li>
+<li>requestHttpServletRequest一次请求访问的多个资源(转发)</li>
+<li>sessionHttpSession一次会话的多个请求间</li>
+<li>applicationServletContext所有用户间共享数据</li>
+<li>responseHttpServletResponse响应对象</li>
+<li>pageObject当前页面(Servlet)的对象  this</li>
+<li>outJspWriter输出对象，数据输出到页面上</li>
+<li>configServletConfigServlet的配置对象</li>
+<li>exceptionThrowable异常对象</li>
+</ul>
+<h2 id="MVC：开发模式"><a href="#MVC：开发模式" class="headerlink" title="MVC：开发模式"></a>MVC：开发模式</h2><ol>
+<li><p>jsp演变历史</p>
+</li>
+<li><p>早期只有servlet，只能使用response输出标签数据，非常麻烦</p>
+</li>
+<li><p>后来又jsp，简化了Servlet的开发，如果过度使用jsp，在jsp中即写大量的java代码，有写html表，造成难于维护，难于分工协作</p>
+</li>
+<li><p>再后来，java的web开发，借鉴mvc开发模式，使得程序的设计更加合理性</p>
+</li>
+<li><p>MVC：</p>
+</li>
+<li><p>M：Model，模型。JavaBean</p>
+</li>
+</ol>
+<ul>
+<li>完成具体的业务操作，如：查询数据库，封装对象</li>
+</ul>
+<ol start="2">
+<li>V：View，视图。JSP</li>
+</ol>
+<ul>
+<li>展示数据</li>
+</ul>
+<ol start="3">
+<li>C：Controller，控制器。Servlet</li>
+</ol>
+<ul>
+<li>获取用户的输入</li>
+<li>调用模型</li>
+<li>将数据交给视图进行展示</li>
+</ul>
+<ul>
+<li>优缺点：</li>
+</ul>
+<ol>
+<li><p>优点：</p>
+</li>
+<li><p>耦合性低，方便维护，可以利于分工协作</p>
+</li>
+<li><p>重用性高</p>
+</li>
+<li><p>缺点：</p>
+</li>
+<li><p>使得项目架构变得复杂，对开发人员要求高</p>
+</li>
+</ol>
+<h2 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h2><ol>
+<li>概念：Expression Language 表达式语言</li>
+<li>作用：替换和简化jsp页面中java代码的编写</li>
+<li>语法：${表达式}</li>
+<li>注意：</li>
+</ol>
+<ul>
+<li>jsp默认支持el表达式的。如果要忽略el表达式</li>
+</ul>
+<ol>
+<li>设置jsp中page指令中：isELIgnored=”true” 忽略当前jsp页面中所有的el表达式</li>
+<li>${表达式} ：忽略当前这个el表达式</li>
+</ol>
+<ol start="5">
+<li>使用：</li>
+<li>运算：</li>
+</ol>
+<ul>
+<li>运算符：</li>
+</ul>
+<ol>
+<li>算数运算符： + - * /(div) %(mod)</li>
+<li>比较运算符： &gt; &lt; &gt;= &lt;= == !=</li>
+<li>逻辑运算符： &amp;&amp;(and) ||(or) !(not)</li>
+<li>空运算符： empty</li>
+</ol>
+<ul>
+<li>功能：用于判断字符串、集合、数组对象是否为null或者长度是否为0</li>
+<li>${empty list}:判断字符串、集合、数组对象是否为null或者长度为0</li>
+<li>${not empty str}:表示判断字符串、集合、数组对象是否不为null 并且 长度&gt;0</li>
+</ul>
+<ol start="2">
+<li>获取值</li>
+<li>el表达式只能从域对象中获取值</li>
+<li>语法：</li>
+<li>${域名称.键名}：从指定域中获取指定键的值</li>
+</ol>
+<ul>
+<li>域名称：</li>
+</ul>
+<ol>
+<li>pageScope–&gt; pageContext</li>
+<li>requestScope –&gt; request</li>
+<li>sessionScope –&gt; session</li>
+<li>applicationScope –&gt; application（ServletContext）</li>
+</ol>
+<ul>
+<li>举例：在request域中存储了name=张三</li>
+<li>获取：${requestScope.name}</li>
+</ul>
+<ol start="2">
+<li>${键名}：表示依次从最小的域中查找是否有该键对应的值，直到找到为止。</li>
+</ol>
+<ol start="3">
+<li>获取对象、List集合、Map集合的值</li>
+<li>对象：${域名称.键名.属性名}</li>
+</ol>
+<ul>
+<li>本质上会去调用对象的getter方法</li>
+</ul>
+<ol start="2">
+<li><p>List集合：${域名称.键名[索引]}</p>
+</li>
+<li><p>Map集合：</p>
+</li>
+</ol>
+<ul>
+<li>${域名称.键名.key名称}</li>
+<li>${域名称.键名[“key名称”]}</li>
+</ul>
+<ol start="3">
+<li>隐式对象：</li>
+</ol>
+<ul>
+<li>el表达式中有11个隐式对象</li>
+<li>pageContext：</li>
+<li>获取jsp其他八个内置对象</li>
+<li>${pageContext.request.contextPath}：动态获取虚拟目录</li>
+</ul>
+<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><ol>
+<li>概念：JavaServer Pages Tag Library  JSP标准标签库</li>
+</ol>
+<ul>
+<li>是由Apache组织提供的开源的免费的jsp标签&lt;标签&gt;</li>
+</ul>
+<ol start="2">
+<li><p>作用：用于简化和替换jsp页面上的java代码</p>
+</li>
+<li><p>使用步骤：</p>
+</li>
+<li><p>导入jstl相关jar包</p>
+</li>
+<li><p>引入标签库：taglib指令：  &lt;%@ taglib %&gt;</p>
+</li>
+<li><p>使用标签</p>
+</li>
+<li><p>常用的JSTL标签</p>
+</li>
+<li><p>if:相当于java代码的if语句</p>
+</li>
+<li><p>属性：</p>
+<pre><code>    * test 必须属性，接受boolean表达式
+        * 如果表达式为true，则显示if标签体内容，如果为false，则不显示标签体内容
+        * 一般情况下，test属性值会结合el表达式一起使用
+2. 注意：
+* c:if标签没有else情况，想要else情况，则可以在定义一个c:if标签</code></pre></li>
+<li><p>choose:相当于java代码的switch语句</p>
+</li>
+<li><p>使用choose标签声明         相当于switch声明</p>
+<pre><code>2. 使用when标签做判断         相当于case
+3. 使用otherwise标签做其他情况的声明    相当于default</code></pre></li>
+<li><p>foreach:相当于java代码的for语句</p>
+</li>
+<li><p>练习：</p>
+</li>
+</ol>
+<ul>
+<li>需求：在request域中有一个存有User对象的List集合。需要使用jstl+el将list集合数据展示到jsp页面的表格table中</li>
+</ul>
+
+      </div>
+      
+      <footer class="post-footer">
+        
+        <nav class="post-nav"><a class="prev" href="/2020/07/14/Git/%E3%80%90%E8%BD%AC%E3%80%91%E5%85%B3%E4%BA%8Ewindows%E4%B8%8Bgit%E4%B8%AD%E6%96%87%E7%9A%84%E8%BE%93%E5%85%A5%E5%92%8C%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">【转】关于windows下git中文的输入和显示问题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2020/07/14/Java/Java%E5%9F%BA%E7%A1%80/">
+        <span class="next-text nav-default">java基础</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2020<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Gloomy楠</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>
