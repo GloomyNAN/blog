@@ -1362,11 +1362,6 @@ hexo-renderer-marked@^2.0.0:
     marked "^0.7.0"
     strip-indent "^3.0.0"
 
-hexo-renderer-pandoc@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npm.taobao.org/hexo-renderer-pandoc/download/hexo-renderer-pandoc-0.3.0.tgz#c8f4006cfdb9f9999eeeb0302e5275fb2f0bf02d"
-  integrity sha1-yPQAbP25+Zme7rAwLlJ1+y8L8C0=
-
 hexo-renderer-scss@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/hexo-renderer-scss/download/hexo-renderer-scss-1.2.0.tgz#4f4485e856c548254ca9be6731be08e118d857b6"
@@ -1832,9 +1827,9 @@ locate-path@^3.0.0:
     path-exists "^3.0.0"
 
 lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.15, lodash@~4.17.12:
-  version "4.17.15"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 longest@^1.0.1:
   version "1.0.1"
