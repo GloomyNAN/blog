@@ -1362,11 +1362,6 @@ hexo-renderer-marked@^2.0.0:
     marked "^0.7.0"
     strip-indent "^3.0.0"
 
-hexo-renderer-pandoc@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.npm.taobao.org/hexo-renderer-pandoc/download/hexo-renderer-pandoc-0.3.0.tgz#c8f4006cfdb9f9999eeeb0302e5275fb2f0bf02d"
-  integrity sha1-yPQAbP25+Zme7rAwLlJ1+y8L8C0=
-
 hexo-renderer-scss@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/hexo-renderer-scss/download/hexo-renderer-scss-1.2.0.tgz#4f4485e856c548254ca9be6731be08e118d857b6"
@@ -1458,9 +1453,9 @@ hexo@^4.2.1:
     warehouse "^3.0.1"
 
 highlight.js@^9.13.1:
-  version "9.18.1"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
-  integrity sha1-7SGqAB/mJSuxCj121HVzxlOf4Tw=
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  integrity sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==
 
 homedir-polyfill@^1.0.1:
   version "1.0.3"
